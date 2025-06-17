@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./styles.css";
-import useContentful from '../hooks/useContentful';
+import useContentful from "../../../backend/contentful/useContentful";
 
 
 const ProjectGrid = () => {
