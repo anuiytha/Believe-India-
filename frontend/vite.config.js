@@ -7,5 +7,6 @@ export default defineConfig({
   base: process.env.VITE_BASE_PATH || '/Believe-India/tree/main',
   build: {
     outDir: 'dist'
-  }
-})
+  },
+  plugins: [react()],
+});
