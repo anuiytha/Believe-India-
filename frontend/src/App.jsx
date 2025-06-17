@@ -5,8 +5,10 @@ import BiIdeas from './pages/bi_ideas';
 import IdeaForm from './pages/ideaForm';
 import IdeaBank from './pages/ideaBank';
 import Home from './pages/home';
+import SimpleHome from './pages/SimpleHome';
 import IdeaDetails from './pages/ideaDetails';
 import UpdateIdea from './pages/UpdateIdea';
+import TestPage from './pages/TestPage';
 
 import About from './pages/about';
 import Projects from './pages/projects';
@@ -28,7 +30,9 @@ const App = () => {
         <Navbar />
         <main className="app-main">
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<SimpleHome />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/test" element={<TestPage />} />
             <Route path="/bi-ideas" element={<BiIdeas />} />
             <Route path="/idea-form" element={<IdeaForm />} />
             <Route path="/idea-bank" element={<IdeaBank />} />

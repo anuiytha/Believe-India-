@@ -2,12 +2,10 @@ import React, { useState, useEffect } from 'react';
 import './home.css';
 import useContentful from '../hooks/useContentful';
 
-
 const Home = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
     const [slides, setSlides] = useState([]); // Store fetched slides
-    const { getCarouselImages } = useContentful(); // Access Contentful fetch function
-    const { getBelieveIndiaIntro } = useContentful();
+    const { getCarouselImages, getBelieveIndiaIntro } = useContentful(); // Access Contentful fetch function
     const [biIntros, setBiIntros] = useState([]);
 
     useEffect(() => {
@@ -23,10 +21,11 @@ const Home = () => {
         }).catch(error => {
             console.error("Error fetching bi intros:", error);
         });
-    }, []);
-
+    }, [getCarouselImages, getBelieveIndiaIntro]);
 
     useEffect(() => {
+        if (slides.length === 0) return;
+
         const timer = setInterval(() => {
             setCurrentSlide((prev) => (prev + 1) % slides.length);
         }, 5000); // Auto-advance every 5 seconds
@@ -114,7 +113,6 @@ const Home = () => {
                     )}
                 </div>
             </section>
-
         </div>
     );
 };
