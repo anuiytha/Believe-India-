@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './home.css';
-import useContentful from '../../../backend/contentful/useContentful';
+import useContentful from '../hooks/useContentful';
 
 
 const Home = () => {

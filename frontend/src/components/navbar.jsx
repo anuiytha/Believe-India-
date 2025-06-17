@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './navbar.css';
-import useContentful from '../../../backend/contentful/useContentful';
+import useContentful from '../hooks/useContentful';
 
 
 const Navbar = () => {

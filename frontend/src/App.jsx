@@ -23,10 +23,10 @@ const App = () => {
   // }, [])
 
   return (
-    <div className="app">
-      <Navbar />
-      <main className="app-main">
-        <Router>
+    <Router>
+      <div className="app">
+        <Navbar />
+        <main className="app-main">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/bi-ideas" element={<BiIdeas />} />
@@ -37,10 +37,9 @@ const App = () => {
             <Route path="/about" element={<About />} />
             <Route path="/projects" element={<Projects />} />
           </Routes>
-        </Router>
-
-      </main>
-    </div>
+        </main>
+      </div>
+    </Router>
   )
 }
 
