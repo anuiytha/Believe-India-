@@ -7,7 +7,7 @@ import IdeaBank from './pages/ideaBank';
 import Home from './pages/home';
 import IdeaDetails from './pages/ideaDetails';
 import UpdateIdea from './pages/UpdateIdea';
-
+import Services from './pages/services';
 import About from './pages/about';
 import Projects from './pages/projects';
 const App = () => {
@@ -36,6 +36,7 @@ const App = () => {
             <Route path="/update-idea/:ideaId" element={<UpdateIdea />} />
             <Route path="/about" element={<About />} />
             <Route path="/projects" element={<Projects />} />
+            <Route path="/services" element={<Services />} />
           </Routes>
         </Router>
 

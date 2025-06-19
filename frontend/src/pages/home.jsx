@@ -1,19 +1,34 @@
 import React, { useState, useEffect } from 'react';
 import './home.css';
 import useContentful from '../../../backend/contentful/useContentful';
+import './styles.css';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faRocket, faHandHoldingHeart, faUsers, faRecycle, faBalanceScale, faBullhorn, faNetworkWired, faStore, faChild } from "@fortawesome/free-solid-svg-icons";
 
+const focusAreas = [
+    { icon: faHandHoldingHeart, label: 'Capacity Building' },
+    { icon: faUsers, label: 'Women Empowerment & Gender Equity' },
+    { icon: faStore, label: 'Market Access' },
+    { icon: faBalanceScale, label: 'Fair Trade Policy & Advocacy' },
+    { icon: faRocket, label: 'Retail Branding' },
+    { icon: faBullhorn, label: 'Fair Trade Promotion & Awareness' },
+    { icon: faEye, label: 'Supply Chain' },
+    { icon: faRecycle, label: 'Environment & Sustainability' },
+    { icon: faChild, label: 'Fight Child labor' },
+    { icon: faNetworkWired, label: 'Networks' },
+];
 
 const Home = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
-    const [slides, setSlides] = useState([]); // Store fetched slides
-    const { getCarouselImages } = useContentful(); // Access Contentful fetch function
+    const [slides, setSlides] = useState([]);
+    const { getCarouselImages } = useContentful();
     const { getBelieveIndiaIntro } = useContentful();
     const [biIntros, setBiIntros] = useState([]);
 
     useEffect(() => {
         getCarouselImages().then((data) => {
-            console.log("Fetched Carousel Images:", data); // Debugging
-            setSlides(data); // Update state with Contentful data
+            console.log("Fetched Carousel Images:", data);
+            setSlides(data);
         }).catch(error => {
             console.error("Error fetching carousel images:", error);
         });
@@ -25,11 +40,10 @@ const Home = () => {
         });
     }, []);
 
-
     useEffect(() => {
         const timer = setInterval(() => {
             setCurrentSlide((prev) => (prev + 1) % slides.length);
-        }, 5000); // Auto-advance every 5 seconds
+        }, 5000);
 
         return () => clearInterval(timer);
     }, [slides.length]);
@@ -48,6 +62,7 @@ const Home = () => {
 
     return (
         <div>
+            {/* Hero Section with Carousel */}
             <section className="hero-section">
                 <div className="carousel-container">
                     {slides.length > 0 ? (
@@ -63,7 +78,7 @@ const Home = () => {
                                     <div className="slide-background" style={{ backgroundImage: `url(${slide.imageUrl})` }}>
                                         <div className="slide-overlay">
                                             <div className="slide-content">
-                                                <h2 className="slide-title">{slide.title}</h2>
+
                                                 <p className="slide-description">{slide.description}</p>
                                             </div>
                                         </div>
@@ -99,22 +114,42 @@ const Home = () => {
                     </div>
                 </div>
             </section>
-            <section className="bi-intros-section">
-                <h2> dream.believe.do</h2>
-                <div className="bi-intros-container">
-                    {biIntros && biIntros.length > 0 ? (
-                        biIntros.map((intro, index) => (
-                            <div key={index} className="bi-intro">
-                                <h2 className="bi-intro-title">{intro.name}</h2>
-                                <p className="bi-intro-description">{intro.description}</p>
-                            </div>
-                        ))
-                    ) : (
-                        <p>Loading intros...</p>
-                    )}
-                </div>
-            </section>
 
+            {/* Main Content Grid */}
+            <div className="home-main-grid">
+                {/* Left Column: Logo and Mission */}
+                <div className="home-left-col">
+                    <div className="logo-section">
+                        <img src="/bilogo.jpg" alt="Believe India Logo" className="logo" />
+                        <h1 className="tagline">Be the Change</h1>
+                    </div>
+                    <div className="mission-box-img-style">
+                        <h2>MISSION</h2>
+                        <p>
+                            The mission is to promote and strengthen Fair Trade and empowering practices and concepts among all the stakeholders including producers, intermediary organizations and consumers globally in designing, production, marketing and development with missionary zeal.
+                        </p>
+                    </div>
+                </div>
+                {/* Right Column: Vision and Focus Areas */}
+                <div className="home-right-col">
+                    <div className="vision-box-img-style">
+                        <h2>VISION</h2>
+                        <p>
+                            Believe India envisions to facilitate empowerment and sustainability of the grassroots producers, artisans and crafts persons through fairness and transparency in trade, alleviating poverty, ignorance and unemployment in India
+                        </p>
+                    </div>
+                    <div className="focus-areas-img-style">
+                        <div className="focus-areas-grid">
+                            {focusAreas.map((area, idx) => (
+                                <div className="focus-area-item" key={area.label}>
+                                    <FontAwesomeIcon icon={area.icon} className="focus-area-icon" />
+                                    <span>{area.label}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };

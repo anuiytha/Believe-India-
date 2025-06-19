@@ -188,7 +188,51 @@ const useContentful = () => {
         }
     }
 
-    return { getBIHomePage, getCarouselImages, getAboutUsPhilosophy, getAboutUsTeam, getAboutUsGetInTouch, getAboutUsTeamMembers, getProjects, getBelieveIndiaIntro };
+    const getBelieveIndiaServices = async () => {
+        try {
+            const entries = await client.getEntries({
+                content_type: "believeIndiaServices",
+                select: "fields",
+            });
+            console.log("Raw Entries:", entries.items); // Debugging
+            const sanitizedEntries = entries.items.map((item) => ({
+                title: item.fields.title || "",
+                description: item.fields.description || "",
+                image: item.fields.image?.fields?.file?.url ? `https:${item.fields.image.fields.file.url}` : null,
+
+            }))
+
+            console.log("Sanitized Believe India Services Entries:", sanitizedEntries); // Debugging
+            return sanitizedEntries;
+        } catch (error) {
+            console.error("Error fetching Believe India Services:", error);
+            throw error;
+        }
+    }
+
+    const getAboutDropdownlist = async () => {
+        try {
+            const entries = await client.getEntries({
+                content_type: "about",
+                select: "fields",
+            });
+            console.log("Raw Entries:", entries.items); // Debugging
+            const sanitizedEntries = entries.items.map((item) => ({
+                title: item.fields.title || "",
+                sitelink: item.fields.sitelink || ""
+            }))
+
+            console.log("Sanitized Believe India About Entries:", sanitizedEntries); // Debugging
+            return sanitizedEntries;
+        } catch (error) {
+            console.error("Error fetching Believe India About:", error);
+            throw error;
+        }
+    }
+
+
+
+    return { getBIHomePage, getCarouselImages, getAboutUsPhilosophy, getAboutUsTeam, getAboutUsGetInTouch, getAboutUsTeamMembers, getProjects, getBelieveIndiaIntro, getBelieveIndiaServices, getAboutDropdownlist };
 }
 
 export default useContentful;   
