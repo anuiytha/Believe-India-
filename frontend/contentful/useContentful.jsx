@@ -222,10 +222,10 @@ const useContentful = () => {
                 path: item.fields.path || ""
             }))
 
-            console.log("Sanitized Believe India About Entries:", sanitizedEntries); // Debugging
+            console.log("Sanitized Believe India AboutDropdownlist  Entries:", sanitizedEntries); // Debugging
             return sanitizedEntries;
         } catch (error) {
-            console.error("Error fetching Believe India About:", error);
+            console.error("Error fetching Believe India AboutDropdownlist:", error);
             throw error;
         }
     }
