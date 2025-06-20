@@ -137,14 +137,14 @@ const Navbar = () => {
                         <div key={item.name} className="nav-item-container">
                             {item.hasDropdown ? (
                                 <div className="dropdown-container">
-                                    <button
+                                    <a
+                                        href={item.path}
                                         className={`nav-link dropdown-toggle ${activeDropdown === item.name ? 'active' : ''}`}
-                                        onClick={() => toggleDropdown(item.name)}
                                         onMouseEnter={() => setActiveDropdown(item.name)}
                                     >
                                         {item.name}
                                         <span className="dropdown-arrow">▼</span>
-                                    </button>
+                                    </a>
                                     <div
                                         className={`dropdown-menu ${activeDropdown === item.name ? 'active' : ''}`}
                                         onMouseLeave={closeDropdown}
