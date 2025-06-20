@@ -49,62 +49,62 @@ const Navbar = () => {
                 sitelink: `/${item.sitelink}`
             }))
         },
-        {
-            name: 'Services',
-            path: '/services',
-            hasDropdown: true,
-            dropdownItems: [
-                { name: 'Consulting', path: '/services/consulting' },
-                { name: 'Training Programs', path: '/services/training' },
-                { name: 'Workshops', path: '/services/workshops' },
-                { name: 'Mentorship', path: '/services/mentorship' },
-                { name: 'Research & Development', path: '/services/research' }
-            ]
-        },
-        {
-            name: 'Initiatives',
-            path: '/projects',
-            hasDropdown: true,
-            dropdownItems: [
-                { name: 'Current Projects', path: '/projects/current' },
-                { name: 'Completed Projects', path: '/projects/completed' },
-                { name: 'Upcoming Projects', path: '/projects/upcoming' },
-                { name: 'Success Stories', path: '/projects/success-stories' }
-            ]
-        },
-        {
-            name: 'Idea Bank',
-            path: '/idea-bank',
-            hasDropdown: true,
-            dropdownItems: [
-                { name: 'Submit Idea', path: '/idea-bank/submit' },
-                { name: 'Browse Ideas', path: '/idea-bank/browse' },
-                { name: 'Featured Ideas', path: '/idea-bank/featured' },
-                { name: 'Idea Guidelines', path: '/idea-bank/guidelines' }
-            ]
-        },
-        {
-            name: 'Partners',
-            path: '/partners',
-            hasDropdown: true,
-            dropdownItems: [
-                { name: 'Our Partners', path: '/partners/list' },
-                { name: 'Become a Partner', path: '/partners/join' },
-                { name: 'Partnership Programs', path: '/partners/programs' },
-                { name: 'Partner Resources', path: '/partners/resources' }
-            ]
-        },
-        {
-            name: 'Contact Us',
-            path: '/contact',
-            hasDropdown: true,
-            dropdownItems: [
-                { name: 'Get in Touch', path: '/contact' },
-                { name: 'Support', path: '/contact/support' },
-                { name: 'Careers', path: '/contact/careers' },
-                { name: 'Media Inquiries', path: '/contact/media' }
-            ]
-        }
+        // {
+        //     name: 'Services',
+        //     path: '/services',
+        //     hasDropdown: true,
+        //     dropdownItems: [
+        //         { name: 'Consulting', path: '/services/consulting' },
+        //         { name: 'Training Programs', path: '/services/training' },
+        //         { name: 'Workshops', path: '/services/workshops' },
+        //         { name: 'Mentorship', path: '/services/mentorship' },
+        //         { name: 'Research & Development', path: '/services/research' }
+        //     ]
+        // },
+        // {
+        //     name: 'Initiatives',
+        //     path: '/projects',
+        //     hasDropdown: true,
+        //     dropdownItems: [
+        //         { name: 'Current Projects', path: '/projects/current' },
+        //         { name: 'Completed Projects', path: '/projects/completed' },
+        //         { name: 'Upcoming Projects', path: '/projects/upcoming' },
+        //         { name: 'Success Stories', path: '/projects/success-stories' }
+        //     ]
+        // },
+        // {
+        //     name: 'Idea Bank',
+        //     path: '/idea-bank',
+        //     hasDropdown: true,
+        //     dropdownItems: [
+        //         { name: 'Submit Idea', path: '/idea-bank/submit' },
+        //         { name: 'Browse Ideas', path: '/idea-bank/browse' },
+        //         { name: 'Featured Ideas', path: '/idea-bank/featured' },
+        //         { name: 'Idea Guidelines', path: '/idea-bank/guidelines' }
+        //     ]
+        // },
+        // {
+        //     name: 'Partners',
+        //     path: '/partners',
+        //     hasDropdown: true,
+        //     dropdownItems: [
+        //         { name: 'Our Partners', path: '/partners/list' },
+        //         { name: 'Become a Partner', path: '/partners/join' },
+        //         { name: 'Partnership Programs', path: '/partners/programs' },
+        //         { name: 'Partner Resources', path: '/partners/resources' }
+        //     ]
+        // },
+        // {
+        //     name: 'Contact Us',
+        //     path: '/contact',
+        //     hasDropdown: true,
+        //     dropdownItems: [
+        //         { name: 'Get in Touch', path: '/contact' },
+        //         { name: 'Support', path: '/contact/support' },
+        //         { name: 'Careers', path: '/contact/careers' },
+        //         { name: 'Media Inquiries', path: '/contact/media' }
+        //     ]
+        // }
     ];
 
     return (
@@ -152,7 +152,7 @@ const Navbar = () => {
                                         {item.dropdownItems.map((dropdownItem) => (
                                             <a
                                                 key={dropdownItem.name}
-                                                href={dropdownItem.path}
+                                                href={item.name === 'About' ? dropdownItem.sitelink : dropdownItem.path}
                                                 className="dropdown-item"
                                                 onClick={() => {
                                                     setIsMenuOpen(false);
