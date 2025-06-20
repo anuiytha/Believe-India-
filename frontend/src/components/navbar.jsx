@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './navbar.css';
 import useContentful from '../../contentful/useContentful';
-import { Link } from 'react-router-dom';
 
 
 const Navbar = () => {
@@ -45,14 +44,10 @@ const Navbar = () => {
             name: 'About',
             path: '/about',
             hasDropdown: true,
-            dropdownItems: aboutDropdownList.map(item => (
-                <Link key={item.name} to={item.sitelink} className="dropdown-item" onClick={() => {
-                    setIsMenuOpen(false);
-                    closeDropdown();
-                }}>
-                    {item.name}
-                </Link>
-            ))
+            dropdownItems: aboutDropdownList.map(item => ({
+                name: item.name,
+                sitelink: `/${item.sitelink}`
+            }))
         },
         {
             name: 'Services',
