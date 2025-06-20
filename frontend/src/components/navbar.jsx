@@ -152,7 +152,7 @@ const Navbar = () => {
                                         {item.dropdownItems.map((dropdownItem) => (
                                             <a
                                                 key={dropdownItem.name}
-                                                href={item.name === 'About' ? dropdownItem.sitelink : dropdownItem.path}
+                                                href={dropdownItem.path}
                                                 className="dropdown-item"
                                                 onClick={() => {
                                                     setIsMenuOpen(false);
