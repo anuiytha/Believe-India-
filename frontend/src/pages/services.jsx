@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import useContentful from '../../../backend/contentful/useContentful';
+import useContentful from '../contentful/useContentful';
 import './styles.css';
 
 const Services = () => {
