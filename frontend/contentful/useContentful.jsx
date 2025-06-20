@@ -213,19 +213,21 @@ const useContentful = () => {
     const getAboutDropdownlist = async () => {
         try {
             const entries = await client.getEntries({
-                content_type: "about",
+                content_type: "aboutDropdownlist",
                 select: "fields",
             });
+
             console.log("Raw Entries:", entries.items); // Debugging
             const sanitizedEntries = entries.items.map((item) => ({
-                name: item.fields.name || "",
-                path: item.fields.path || ""
+                name: item.fields.name || '',
+                path: item.fields.path || "",
+
             }))
 
-            console.log("Sanitized Believe India AboutDropdownlist  Entries:", sanitizedEntries); // Debugging
+            console.log("Sanitized About Dropdownlist Entries:", sanitizedEntries); // Debugging
             return sanitizedEntries;
         } catch (error) {
-            console.error("Error fetching Believe India AboutDropdownlist:", error);
+            console.error("Error fetching About Dropdownlist:", error);
             throw error;
         }
     }
