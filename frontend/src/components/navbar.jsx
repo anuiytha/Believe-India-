@@ -9,11 +9,16 @@ const Navbar = () => {
     const [biLogo, setBiLogo] = useState(null);
     const [activeDropdown, setActiveDropdown] = useState(null);
     const { getBIHomePage } = useContentful();
-
+    const { getAboutDropdownlist } = useContentful();
+    const [aboutDropdownList, setAboutDropdownList] = useState([]);
     useEffect(() => {
         getBIHomePage().then((data) => {
             console.log("Fetched BIHomePage Data:", data); // Debugging
             setBiLogo(data);
+        });
+        getAboutDropdownlist().then((data) => {
+            console.log("Fetched About Dropdown List:", data); // Debugging
+            setAboutDropdownList(data);
         });
     }, []);
 
@@ -39,12 +44,10 @@ const Navbar = () => {
             name: 'About',
             path: '/about',
             hasDropdown: true,
-            dropdownItems: [
-                { name: 'Our Story', path: '/about/story' },
-                { name: 'Mission & Vision', path: '/about/mission' },
-                { name: 'Team', path: '/about/team' },
-                { name: 'Values', path: '/about/values' }
-            ]
+            dropdownItems: aboutDropdownList.map(item => ({
+                name: item.name,
+                sitelink: `/${item.sitelink}`
+            }))
         },
         {
             name: 'Services',
