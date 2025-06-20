@@ -49,18 +49,18 @@ const Navbar = () => {
                 path: item.path
             }))
         },
-        // {
-        //     name: 'Services',
-        //     path: '/services',
-        //     hasDropdown: true,
-        //     dropdownItems: [
-        //         { name: 'Consulting', path: '/services/consulting' },
-        //         { name: 'Training Programs', path: '/services/training' },
-        //         { name: 'Workshops', path: '/services/workshops' },
-        //         { name: 'Mentorship', path: '/services/mentorship' },
-        //         { name: 'Research & Development', path: '/services/research' }
-        //     ]
-        // },
+        {
+            name: 'Services',
+            path: '/services',
+            hasDropdown: true,
+            dropdownItems: [
+                { name: 'Consulting', path: '/services/consulting' },
+                { name: 'Training Programs', path: '/services/training' },
+                { name: 'Workshops', path: '/services/workshops' },
+                { name: 'Mentorship', path: '/services/mentorship' },
+                { name: 'Research & Development', path: '/services/research' }
+            ]
+        },
         // {
         //     name: 'Initiatives',
         //     path: '/projects',
