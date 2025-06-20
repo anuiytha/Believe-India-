@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './navbar.css';
-import useContentful from '../contentful/useContentful';
+import useContentful from '../../contentful/useContentful';
 
 
 const Navbar = () => {

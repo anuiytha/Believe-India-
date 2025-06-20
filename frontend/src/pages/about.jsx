@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./styles.css";
-import useContentful from '../contentful/useContentful';
+import useContentful from '../../contentful/useContentful';
 
 const About = () => {
     const { getAboutUsPhilosophy, getAboutUsTeam, getAboutUsGetInTouch, getAboutUsTeamMembers } = useContentful();
