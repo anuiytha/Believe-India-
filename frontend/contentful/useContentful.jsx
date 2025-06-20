@@ -219,7 +219,7 @@ const useContentful = () => {
             console.log("Raw Entries:", entries.items); // Debugging
             const sanitizedEntries = entries.items.map((item) => ({
                 name: item.fields.name || "",
-                sitelink: item.fields.sitelink || ""
+                path: item.fields.path || ""
             }))
 
             console.log("Sanitized Believe India About Entries:", sanitizedEntries); // Debugging
