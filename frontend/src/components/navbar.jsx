@@ -46,7 +46,7 @@ const Navbar = () => {
             hasDropdown: true,
             dropdownItems: aboutDropdownList.map(item => ({
                 name: item.name,
-                sitelink: `/${item.sitelink}`
+                path: `/${item.sitelink}`
             }))
         },
         // {
