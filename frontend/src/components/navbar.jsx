@@ -78,7 +78,7 @@ const Navbar = () => {
             hasDropdown: true,
             dropdownItems: [
                 { name: 'Submit Idea', path: '/idea-bank/idea-form' },
-                { name: 'Browse Ideas', path: '/idea-bank/idea-bank' },
+                { name: 'Browse Ideas', path: '/idea-bank' },
                 { name: 'Featured Ideas', path: '/idea-bank/featured' },
                 { name: 'Idea Guidelines', path: '/idea-bank/guidelines' }
             ]
