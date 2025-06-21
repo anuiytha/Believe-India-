@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-import "./styles.css"; // Import styles
+import "../../styles.css";
 import IdeaForm from "./ideaForm";
 
 const IdeaBank = () => {
