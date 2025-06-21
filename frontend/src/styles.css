@@ -1705,3 +1705,127 @@ button:hover {
     font-weight: bold;
     color: #333;
 }
+
+/* Work in Progress Page Styles */
+.completed-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 20px;
+}
+
+.work-in-progress-container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    max-width: 500px;
+    width: 100%;
+}
+
+.work-in-progress-image {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.work-in-progress-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.work-in-progress-text {
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    font-weight: 400;
+}
+
+.progress-indicator {
+    margin-top: 30px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: #e9ecef;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    border-radius: 4px;
+    animation: progressAnimation 2s ease-in-out infinite;
+    width: 70%;
+}
+
+@keyframes progressAnimation {
+    0% {
+        width: 30%;
+    }
+
+    50% {
+        width: 70%;
+    }
+
+    100% {
+        width: 30%;
+    }
+}
+
+.progress-text {
+    font-size: 0.9rem;
+    color: #888;
+    font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .work-in-progress-container {
+        padding: 30px 20px;
+        margin: 20px;
+    }
+
+    .work-in-progress-title {
+        font-size: 2rem;
+    }
+
+    .work-in-progress-text {
+        font-size: 1rem;
+    }
+
+    .work-in-progress-image svg {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    .work-in-progress-container {
+        padding: 25px 15px;
+    }
+
+    .work-in-progress-title {
+        font-size: 1.8rem;
+    }
+
+    .work-in-progress-image svg {
+        width: 120px;
+        height: 120px;
+    }
+}
