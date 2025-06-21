@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './home.css';
 import useContentful from '../../contentful/useContentful';
-import './styles.css';
+import '../styles.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faRocket, faHandHoldingHeart, faUsers, faRecycle, faBalanceScale, faBullhorn, faNetworkWired, faStore, faChild } from "@fortawesome/free-solid-svg-icons";
 

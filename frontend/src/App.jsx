@@ -7,7 +7,7 @@ import IdeaBank from './pages/ideas/ideaBank';
 import Home from './pages/home';
 import IdeaDetails from './pages/ideas/ideaDetails';
 import UpdateIdea from './pages/ideas/UpdateIdea';
-import Services from './pages/services';
+import Services from './pages/services/services';
 import About from './pages/about';
 import Projects from './pages/projects';
 import Consulting from './pages/services/consulting';
