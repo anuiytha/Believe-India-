@@ -9,16 +9,16 @@ import IdeaDetails from './pages/ideas/ideaDetails';
 import UpdateIdea from './pages/ideas/UpdateIdea';
 import Services from './pages/services/services';
 import About from './pages/about';
-import Projects from './pages/projects';
+import Projects from './pages/initiatives/projects';
 import Consulting from './pages/services/consulting';
 import Training from './pages/services/training';
 import Workshops from './pages/services/workshops';
 import Mentorship from './pages/services/mentorship';
 import Research from './pages/services/research';
-import Current from './pages/projects/current';
-import Completed from './pages/projects/completed';
-import Upcoming from './pages/projects/upcoming';
-import SuccessStories from './pages/projects/success-stories';
+import Current from './pages/initiatives/current';
+import Completed from './pages/initiatives/completed';
+import Upcoming from './pages/initiatives/upcoming';
+import SuccessStories from './pages/initiatives/success-stories';
 
 const App = () => {
   // const [message, setMessage] = useState('')
