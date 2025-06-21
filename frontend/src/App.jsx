@@ -3,7 +3,7 @@ import './App.css'
 import Navbar from './components/navbar';
 import BiIdeas from './pages/ideas/bi_ideas';
 import IdeaForm from './pages/ideas/ideaForm';
-import IdeaBank from './pages/ideaBank';
+import IdeaBank from './pages/ideas/ideaBank';
 import Home from './pages/home';
 import IdeaDetails from './pages/ideas/ideaDetails';
 import UpdateIdea from './pages/ideas/UpdateIdea';
