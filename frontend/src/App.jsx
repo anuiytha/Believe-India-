@@ -15,6 +15,10 @@ import Training from './pages/services/training';
 import Workshops from './pages/services/workshops';
 import Mentorship from './pages/services/mentorship';
 import Research from './pages/services/research';
+import Current from './pages/projects/current';
+import Completed from './pages/projects/completed';
+import Upcoming from './pages/projects/upcoming';
+import SuccessStories from './pages/projects/success-stories';
 
 const App = () => {
   // const [message, setMessage] = useState('')
@@ -48,6 +52,10 @@ const App = () => {
             <Route path="/services/workshops" element={<Workshops />} />
             <Route path="/services/mentorship" element={<Mentorship />} />
             <Route path="/services/research" element={<Research />} />
+            <Route path="/projects/current" element={<Current />} />
+            <Route path="/projects/completed" element={<Completed />} />
+            <Route path="/projects/upcoming" element={<Upcoming />} />
+            <Route path="/projects/success-stories" element={<SuccessStories />} />
           </Routes>
         </Router>
 

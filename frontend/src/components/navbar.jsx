@@ -61,17 +61,17 @@ const Navbar = () => {
                 { name: 'Research & Development', path: '/services/research' }
             ]
         },
-        // {
-        //     name: 'Initiatives',
-        //     path: '/projects',
-        //     hasDropdown: true,
-        //     dropdownItems: [
-        //         { name: 'Current Projects', path: '/projects/current' },
-        //         { name: 'Completed Projects', path: '/projects/completed' },
-        //         { name: 'Upcoming Projects', path: '/projects/upcoming' },
-        //         { name: 'Success Stories', path: '/projects/success-stories' }
-        //     ]
-        // },
+        {
+            name: 'Initiatives',
+            path: '/projects',
+            hasDropdown: true,
+            dropdownItems: [
+                { name: 'Current Projects', path: '/projects/current' },
+                { name: 'Completed Projects', path: '/projects/completed' },
+                { name: 'Upcoming Projects', path: '/projects/upcoming' },
+                { name: 'Success Stories', path: '/projects/success-stories' }
+            ]
+        },
         // {
         //     name: 'Idea Bank',
         //     path: '/idea-bank',
