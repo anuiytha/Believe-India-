@@ -1,12 +1,12 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css'
 import Navbar from './components/navbar';
-import BiIdeas from './pages/bi_ideas';
-import IdeaForm from './pages/ideaForm';
+import BiIdeas from './pages/ideas/bi_ideas';
+import IdeaForm from './pages/ideas/ideaForm';
 import IdeaBank from './pages/ideaBank';
 import Home from './pages/home';
-import IdeaDetails from './pages/ideaDetails';
-import UpdateIdea from './pages/UpdateIdea';
+import IdeaDetails from './pages/ideas/ideaDetails';
+import UpdateIdea from './pages/ideas/UpdateIdea';
 import Services from './pages/services';
 import About from './pages/about';
 import Projects from './pages/projects';
