@@ -21,7 +21,8 @@ const UpdateIdea = () => {
 
     const fetchIdea = async () => {
         try {
-            const response = await axios.get(`http://localhost:3001/ideas/${ideaId}`);
+            const response = await axios.get(`https://believe-india-backend.onrender.com/ideas/${ideaId}`);
+            // const response = await axios.get(`http://localhost:3001/ideas/${ideaId}`);
             setIdea(response.data);
             setLoading(false);
         } catch (error) {
@@ -40,7 +41,8 @@ const UpdateIdea = () => {
         e.preventDefault();
         try {
             console.log('Updating idea with data:', idea);
-            await axios.put(`http://localhost:3001/ideas/${ideaId}`, idea);
+            // await axios.put(`http://localhost:3001/ideas/${ideaId}`, idea);
+            await axios.put(`https://believe-india-backend.onrender.com/ideas/${ideaId}`)
             console.log('Idea updated successfully!');
             alert("Idea updated successfully!");
             navigate('/idea-bank'); // Redirect back to idea bank

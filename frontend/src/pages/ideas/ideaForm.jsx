@@ -32,7 +32,8 @@ const IdeaForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post("http://localhost:3001/ideas", idea);
+            // await axios.post("http://localhost:3001/ideas", idea);
+            await axios.post("https://believe-india-backend.onrender.com/ideas", idea)
             alert("Idea submitted successfully!");
             setIdea({ idea_title: "", idea_description: "", idea_status: "", idea_category: "", idea_image: "" });
         } catch (error) {

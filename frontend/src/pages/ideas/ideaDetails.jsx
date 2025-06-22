@@ -9,7 +9,8 @@ const IdeaDetails = () => {
     const [idea, setIdea] = useState(null);
 
     useEffect(() => {
-        axios.get(`http://localhost:3001/ideas/${id}`)
+        // axios.get(`http://localhost:3001/ideas/${id}`)
+        axios.get(`https://believe-india-backend.onrender.com/ideas/${id}`)
             .then(response => {
                 setIdea(response.data);
             })

@@ -5,7 +5,8 @@ const BIIdeas = () => {
     const [ideas, setIdeas] = useState([]);
 
     useEffect(() => {
-        axios.get("http://localhost:3001/ideas") // Replace with your backend API endpoint
+        axios.get("https://believe-india-backend.onrender.com/ideas")
+            //  axios.get("http://localhost:3001/ideas")
             .then(response => {
                 setIdeas(response.data);
             })

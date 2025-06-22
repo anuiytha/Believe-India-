@@ -9,7 +9,9 @@ const serviceRoutes = require('./routes/serviceRoutes');
 
 app.use(cors());
 app.use(cors({
-    origin: "http://localhost:5173"
+    // origin: "http://localhost:5173"
+    origin: "https://believeindiafrontend.netlify.app",
+    credentials: true,
 }));
 
 app.use(express.json());

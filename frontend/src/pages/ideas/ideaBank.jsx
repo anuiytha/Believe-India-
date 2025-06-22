@@ -13,7 +13,7 @@ const IdeaBank = () => {
     }, []);
 
     const fetchIdeas = () => {
-        axios.get("http://localhost:3001/ideas")
+        axios.get("https://believe-india-backend.onrender.com/ideas")
             .then(response => {
                 console.log("Fetched Ideas:", response.data)
                 setIdeas(response.data);
@@ -29,7 +29,8 @@ const IdeaBank = () => {
 
         if (window.confirm("Are you sure you want to delete this idea?")) {
             try {
-                await axios.delete(`http://localhost:3001/ideas/${ideaId}`);
+                // await axios.delete(`http://localhost:3001/ideas/${ideaId}`);
+                await axios.delete(`https://believe-india-backend.onrender.com/ideas/${ideaId}`)
                 // Remove the idea from the local state
                 setIdeas(ideas.filter(idea => idea.idea_id !== ideaId));
                 alert("Idea deleted successfully!");

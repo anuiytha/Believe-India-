@@ -2,6 +2,7 @@ import { createClient } from 'contentful';
 
 const useContentful = () => {
     const client = createClient({
+        // shld put these credentials in .env file
         space: 'sof4v5jsgktw',
         accessToken: "ZopswWRV7jKLeY_IF63U1HVgCSKAbKtCSHxkqM1SWzw",
         host: "cdn.contentful.com"
