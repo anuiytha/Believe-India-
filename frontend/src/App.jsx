@@ -22,7 +22,6 @@ import SuccessStories from './pages/initiatives/success-stories';
 import Partners from "./pages/partners/partners";
 import SubmitIdea from "./pages/ideas/submitIdea";
 import FeaturedIdeas from "./pages/ideas/featuredIdeas";
-import Campaigns from "./pages/campaigns/campaigns";
 
 
 const App = () => {
@@ -63,7 +62,7 @@ const App = () => {
           <Route path="/projects/success-stories" element={<SuccessStories />} />
           <Route path="/partners" element={<Partners />} />
           <Route path="/featured-ideas" element={<FeaturedIdeas />} />
-          <Route path="/our-campaigns" element={<Campaigns />} />
+
         </Routes>
       </main>
     </div>

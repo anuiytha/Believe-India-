@@ -94,17 +94,6 @@ const Navbar = () => {
                 { name: 'Partner Resources', path: '/partners/resources' }
             ]
         },
-        {
-            name: 'Our Campaigns',
-            path: '/our-campaigns',
-            hasDropdown: true,
-            // dropdownItems: [
-            //     { name: 'Retail', path: '/retail' },
-            //     { name: 'Become a Partner', path: '/partners/join' },
-            //     { name: 'Partnership Programs', path: '/partners/programs' },
-            //     { name: 'Partner Resources', path: '/partners/resources' }
-            // ]
-        },
 
 
 
