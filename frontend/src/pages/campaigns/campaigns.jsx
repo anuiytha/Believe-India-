@@ -25,7 +25,15 @@ const Campaigns = () => {
                 'Library cum resource center with Nirmal Bharti Public School',
                 'Children Creativity Club'
             ]
-        }
+        },
+        {
+            name: 'Volunteer for a Better India',
+            images: ['./Volunteer for Better India .png'],
+            desc: [
+                'It is the apathy of the good people, which has brought us to this state. Let the youth and citizens come forward and pledge 1 HOUR TO THE NATION and VOLUNTEER FOR A BETTER INDIA.',
+
+            ]
+        },
     ];
 
 
