@@ -20,6 +20,7 @@ import Completed from './pages/initiatives/completed';
 import Upcoming from './pages/initiatives/upcoming';
 import SuccessStories from './pages/initiatives/success-stories';
 import Partners from "./pages/partners/partners";
+import SubmitIdea from "./pages/ideas/submitIdea";
 
 
 const App = () => {
@@ -42,6 +43,7 @@ const App = () => {
           <Route path="/bi-ideas" element={<BiIdeas />} />
           <Route path="/idea-form" element={<IdeaForm />} />
           <Route path="/idea-bank" element={<IdeaBank />} />
+          <Route path="/submit-idea" element={<SubmitIdea />} />
           <Route path="/idea/:id" element={<IdeaDetails />} />
           <Route path="/update-idea/:ideaId" element={<UpdateIdea />} />
           <Route path="/about" element={<About />} />
