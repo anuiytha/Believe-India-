@@ -80,7 +80,7 @@ const Navbar = () => {
             dropdownItems: [
                 { name: 'Submit Idea', path: '/idea-bank/submit-idea' },
                 { name: 'Browse Ideas', path: '/idea-bank' },
-                { name: 'Featured Ideas', path: 'idea-bank/featured-ideas' },
+                { name: 'Featured Ideas', path: '/featured-ideas' },
             ]
         },
         {
