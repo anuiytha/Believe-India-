@@ -95,6 +95,13 @@ const Navbar = () => {
             ]
         },
 
+        {
+            name: 'Our Campaigns',
+            path: '/our-campaigns',
+            hasDropdown: false
+
+        },
+
 
 
 
