@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import './navbar.css';
 import useContentful from '../../contentful/useContentful';
 
@@ -77,23 +78,23 @@ const Navbar = () => {
             path: '/idea-bank',
             hasDropdown: true,
             dropdownItems: [
-                { name: 'Submit Idea', path: '/idea-bank/idea-form' },
+                { name: 'Submit Idea', path: '/idea-bank/submit-idea' },
                 { name: 'Browse Ideas', path: '/idea-bank' },
                 { name: 'Featured Ideas', path: '/idea-bank/featured' },
                 { name: 'Idea Guidelines', path: '/idea-bank/guidelines' }
             ]
         },
-        // {
-        //     name: 'Partners',
-        //     path: '/partners',
-        //     hasDropdown: true,
-        //     dropdownItems: [
-        //         { name: 'Our Partners', path: '/partners/list' },
-        //         { name: 'Become a Partner', path: '/partners/join' },
-        //         { name: 'Partnership Programs', path: '/partners/programs' },
-        //         { name: 'Partner Resources', path: '/partners/resources' }
-        //     ]
-        // },
+        {
+            name: 'Partners',
+            path: '/partners',
+            hasDropdown: true,
+            dropdownItems: [
+                { name: 'Our Partners', path: '/partners/list' },
+                { name: 'Become a Partner', path: '/partners/join' },
+                { name: 'Partnership Programs', path: '/partners/programs' },
+                { name: 'Partner Resources', path: '/partners/resources' }
+            ]
+        },
         // {
         //     name: 'Contact Us',
         //     path: '/contact',
@@ -111,13 +112,13 @@ const Navbar = () => {
         <nav className="navbar">
             <div className="navbar-container">
                 <div className="navbar-logo">
-                    <a href="/">
+                    <Link to="/">
                         <img
                             src={biLogo?.biLogoImage?.fields?.file?.url ? `https:${biLogo.biLogoImage.fields.file.url}` : './bilogo.jpg'}
                             alt={biLogo?.biLogoImage?.fields?.title || "Believe India Logo"}
                             className="logo-image"
                         />
-                    </a>
+                    </Link>
                 </div>
 
                 {/* Mobile menu button */}
@@ -137,22 +138,22 @@ const Navbar = () => {
                         <div key={item.name} className="nav-item-container">
                             {item.hasDropdown ? (
                                 <div className="dropdown-container">
-                                    <a
-                                        href={item.path}
+                                    <Link
+                                        to={item.path}
                                         className={`nav-link dropdown-toggle ${activeDropdown === item.name ? 'active' : ''}`}
                                         onMouseEnter={() => setActiveDropdown(item.name)}
                                     >
                                         {item.name}
                                         <span className="dropdown-arrow">▼</span>
-                                    </a>
+                                    </Link>
                                     <div
                                         className={`dropdown-menu ${activeDropdown === item.name ? 'active' : ''}`}
                                         onMouseLeave={closeDropdown}
                                     >
                                         {item.dropdownItems.map((dropdownItem) => (
-                                            <a
+                                            <Link
                                                 key={dropdownItem.name}
-                                                href={dropdownItem.path}
+                                                to={dropdownItem.path}
                                                 className="dropdown-item"
                                                 onClick={() => {
                                                     setIsMenuOpen(false);
@@ -160,18 +161,18 @@ const Navbar = () => {
                                                 }}
                                             >
                                                 {dropdownItem.name}
-                                            </a>
+                                            </Link>
                                         ))}
                                     </div>
                                 </div>
                             ) : (
-                                <a
-                                    href={item.path}
+                                <Link
+                                    to={item.path}
                                     className="nav-link"
                                     onClick={() => setIsMenuOpen(false)}
                                 >
                                     {item.name}
-                                </a>
+                                </Link>
                             )}
                         </div>
                     ))}

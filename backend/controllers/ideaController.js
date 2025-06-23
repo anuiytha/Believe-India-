@@ -16,8 +16,9 @@ exports.getIdeas = async (req, res) => {
         const formattedIdeas = ideas.map(idea => ({
             ...idea.toJSON(),
             idea_image: idea.idea_image
-                ? `data:image/jpeg;base64,${Buffer.from(idea.idea_image).toString('base64')}`
+                ? `data:image/*;base64,${Buffer.from(idea.idea_image).toString('base64')}`
                 : null
+
         }));
 
 
