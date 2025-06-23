@@ -21,6 +21,7 @@ import Upcoming from './pages/initiatives/upcoming';
 import SuccessStories from './pages/initiatives/success-stories';
 import Partners from "./pages/partners/partners";
 import SubmitIdea from "./pages/ideas/submitIdea";
+import FeaturedIdeas from "./pages/ideas/featuredIdeas";
 
 
 const App = () => {
@@ -59,6 +60,7 @@ const App = () => {
           <Route path="/projects/upcoming" element={<Upcoming />} />
           <Route path="/projects/success-stories" element={<SuccessStories />} />
           <Route path="/partners" element={<Partners />} />
+          <Route path="/featured-ideas" element={<FeaturedIdeas />} />
 
         </Routes>
       </main>
