@@ -6,7 +6,7 @@ const Campaigns = () => {
     const CampaignList = [
         {
             name: 'Podium Finish Campaign',
-            images: ['./podiumFinish.png'],
+            images: ['./podiumFinish .png'],
             desc: [
                 'To support Indian athletes for Olympics-2012',
                 'Signature Campaign: collected 50,000 signatures & submitted to the govt. authority'
