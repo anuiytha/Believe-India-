@@ -60,7 +60,7 @@ const IdeaBank = () => {
                             ) : (
                                 <p>No Image Available</p>
                             )}
-                            console.log("Image data:", ideas[0]?.idea_image)
+
 
                             <h3>{idea.idea_title}</h3>
                             <p>{idea.idea_description.substring(0, 80)}...</p>
