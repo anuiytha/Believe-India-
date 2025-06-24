@@ -60,10 +60,6 @@ const App = () => {
           <Route path="/services/workshops" element={<Workshops />} />
           <Route path="/services/mentorship" element={<Mentorship />} />
           <Route path="/services/research" element={<Research />} />
-          <Route path="/projects/current" element={<Current />} />
-          <Route path="/projects/completed" element={<Completed />} />
-          <Route path="/projects/upcoming" element={<Upcoming />} />
-          <Route path="/projects/success-stories" element={<SuccessStories />} />
           <Route path="/partners" element={<Partners />} />
           <Route path="/featured-ideas" element={<FeaturedIdeas />} />
           <Route path="/our-campaigns" element={<Campaigns />} />
