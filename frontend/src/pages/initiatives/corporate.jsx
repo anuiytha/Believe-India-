@@ -20,7 +20,7 @@ const Corporate = () => {
             <div className="home-container">
                 <h1>Corporate Page</h1>
                 <div className="home-grid">
-                    {campaigns.map((item) => (
+                    {corporate.map((item) => (
                         <div key={item._id} className="home-card">
                             <h3>{item.title}</h3>
                             {item.images?.map((img, idx) => (
