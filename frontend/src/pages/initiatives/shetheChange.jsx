@@ -11,14 +11,14 @@ const ShetheChange = () => {
             title,
             description,
             images[]{asset->{url}}}`).then((data) => {
-            setCampaigns(data);
+            setShetheChange(data);
         }).catch(console.error);
     }, []);
 
     return (
         <>
             <div className="home-container">
-                <h1>Our Campaigns</h1>
+                <h1>She the Change</h1>
                 <div className="home-grid">
                     {shetheChange.map((item) => (
                         <div key={item._id} className="home-card">
