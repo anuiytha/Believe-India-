@@ -23,10 +23,11 @@ const Campaigns = () => {
                     {campaigns.map((item) => (
                         <div key={item._id} className="home-card">
                             <h3>{item.title}</h3>
-                            <p>{item.description}</p>
                             {item.images?.map((img, idx) => (
                                 <img key={idx} src={img.asset.url} alt={item.title} className="home-img" />
                             ))}
+                            <p>{item.description}</p>
+
                         </div>
                     ))}
                 </div>
