@@ -1,71 +1,35 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { client } from "../../../sanityio/sanityClient";
 import "../../styles.css";
 
 const Campaigns = () => {
+    const [campaigns, setCampaigns] = useState([]);
 
-    const CampaignList = [
-        {
-            name: 'Podium Finish Campaign',
-            images: ['./podiumFinish .png'],
-            desc: [
-                'To support Indian athletes for Olympics-2012',
-                'Signature Campaign: collected 50,000 signatures & submitted to the govt. authority'
-            ]
-        },
-        {
-            name: 'Computer Literacy Haat - Kalkaji, Delhi',
-            images: [
-                './Computer Literacy 1.png',
-                './Computer Literacy 2.png'
-            ],
-            desc: [
-                'Basic Computer Literacy Course',
-                'Women empowerment workshops',
-                'Personality development classes',
-                'Library cum resource center with Nirmal Bharti Public School',
-                'Children Creativity Club'
-            ]
-        },
-        {
-            name: 'Volunteer for a Better India',
-            images: ['./Volunteer for Better India .png'],
-            desc: [
-                'It is the apathy of the good people, which has brought us to this state. Let the youth and citizens come forward and pledge 1 HOUR TO THE NATION and VOLUNTEER FOR A BETTER INDIA.',
-
-            ]
-        },
-    ];
-
+    useEffect(() => {
+        client.fetch(`*[_type == "campaign"] {
+            _id,
+            title,
+            description,
+            images[]{asset->{url}}}`).then((data) => {
+            setCampaigns(data);
+        }).catch(console.error);
+    }, []);
 
     return (
         <>
             <div className="home-container">
                 <h1>Our Campaigns</h1>
                 <div className="home-grid">
-                    {CampaignList.map((campaign, index) => (
-                        <div key={index} className="home-card">
-                            <h2 style={{ textAlign: 'center' }}>{campaign.name}</h2>
-
-                            {campaign.images.map((imgSrc, imgIdx) => (
-                                <img
-                                    key={imgIdx}
-                                    src={imgSrc}
-                                    alt={`${campaign.name} image ${imgIdx + 1}`}
-                                    className="idea-image"
-                                />
+                    {campaigns.map((item) => (
+                        <div key={item._id} className="">
+                            <h3>{item.title}</h3>
+                            <p>{item.description}</p>
+                            {item.images?.map((img, idx) => (
+                                <img key={idx} src={img.asset.url} alt={item.title} className="campaign-img" />
                             ))}
-
-                            <div style={{ textAlign: 'center' }}>
-                                {campaign.desc.map((line, lineIdx) => (
-                                    <p key={lineIdx}>{line}</p>
-                                ))}
-                            </div>
-
-                            <button style={{ display: 'block', margin: '0 auto' }}>View Project</button>
                         </div>
                     ))}
                 </div>
-
             </div>
         </>
     )
