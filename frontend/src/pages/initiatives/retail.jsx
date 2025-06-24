@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../styles.css';
 
-const SuccessStories = () => {
+const Retail = () => {
     return (
         <div className="completed-page">
             <div className="work-in-progress-container">
@@ -53,4 +53,4 @@ const SuccessStories = () => {
     );
 };
 
-export default SuccessStories;
+export default Retail;

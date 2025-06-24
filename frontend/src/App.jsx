@@ -23,6 +23,13 @@ import Partners from "./pages/partners/partners";
 import SubmitIdea from "./pages/ideas/submitIdea";
 import FeaturedIdeas from "./pages/ideas/featuredIdeas";
 import Campaigns from "./pages/campaigns/campaigns";
+import Corporate from "./pages/initiatives/corporate";
+import Travel from "./pages/initiatives/travel";
+import Retail from "./pages/initiatives/retail";
+import ECommerce from "./pages/initiatives/ecommerce";
+import ShetheChange from "./pages/initiatives/shetheChange";
+import EMC from "./pages/initiatives/emc";
+import Awards from "./pages/initiatives/awards";
 
 
 const App = () => {
@@ -64,6 +71,14 @@ const App = () => {
           <Route path="/partners" element={<Partners />} />
           <Route path="/featured-ideas" element={<FeaturedIdeas />} />
           <Route path="/our-campaigns" element={<Campaigns />} />
+          <Route path="/projects/corporate" element={<Corporate />} />
+          <Route path="/projects/travel" element={<Travel />} />
+          <Route path="./projects/retail" element={<Retail />} />
+          <Route path="./projects/ecommerce" element={<ECommerce />} />
+          <Route path="./projects/awards" element={<Awards />} />
+          <Route path="./projects/emc" element={<EMC />} />
+          <Route path="./projects/shethechange" element={<ShetheChange />} />
+
         </Routes>
       </main>
     </div>

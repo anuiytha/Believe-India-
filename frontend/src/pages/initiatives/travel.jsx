@@ -1,9 +1,10 @@
 import React from 'react';
 import '../../styles.css';
 
-const Upcoming = () => {
+const Travel = () => {
     return (
         <div className="completed-page">
+            <h1>This is the current project page</h1>
             <div className="work-in-progress-container">
                 <div className="work-in-progress-image">
                     <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -53,4 +54,4 @@ const Upcoming = () => {
     );
 };
 
-export default Upcoming;
+export default Travel;
