@@ -11,7 +11,7 @@ const ECommerce = () => {
             title,
             description,
             images[]{asset->{url}}}`).then((data) => {
-            setCommerce(data);
+            setEcommerce(data);
         }).catch(console.error);
     }, []);
 

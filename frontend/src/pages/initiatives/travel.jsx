@@ -11,7 +11,7 @@ const Travel = () => {
             title,
             description,
             images[]{asset->{url}}}`).then((data) => {
-            setCampaigns(data);
+            setTravel(data);
         }).catch(console.error);
     }, []);
 
