@@ -32,12 +32,24 @@ const Home = () => {
                     biLogo,
                     "biLogoImage": biLogoImage.asset->url,
                     description,
-                    carouselImages[] {
-                        title,
-                        description,
-                        "image": image.asset->url
+                    homepageContent {
+                        tagline {
+                            title,
+                            description,
+                            "image": image.asset->url
+                        },
+                        content1 {
+                            title,
+                            description,
+                            "image": image.asset->url
+                        },
+                        content2 {
+                            title,
+                            description,
+                            "image": image.asset->url
+                        }
                     },
-                    homepageContent[] {
+                    carouselImages[] {
                         title,
                         description,
                         "image": image.asset->url
@@ -180,28 +192,39 @@ const Home = () => {
                             alt="Believe India Logo"
                             className="logo"
                         />
-                        {/* <h1 className="tagline">{homeData?.biLogo || "Be the Change"}</h1> */}
+                        <h1 className="tagline">{homeData?.homepageContent?.tagline && (
+                            <div>
+                                <h3>{homeData.homepageContent.tagline.title}</h3>
+                                <p>{homeData.homepageContent.tagline.description}</p>
+                            </div>
+                        )}</h1>
                     </div>
                     <div className="mission-box-img-style">
                         {/* <h2>MISSION</h2> */}
                         <p>
-
-                            {homeData.homepageContent.map((item, index) => (
-                                <div key={index}>
-                                    <h3>{item.title}</h3>
-                                    <p>{item.description}</p>
+                            {homeData?.homepageContent?.content1 && (
+                                <div>
+                                    <h3>{homeData.homepageContent.content1.title}</h3>
+                                    <p>{homeData.homepageContent.content1.description}</p>
                                 </div>
-                            ))}
+                            )}
+
                         </p>
                     </div>
                 </div>
                 {/* Right Column: Vision and Focus Areas */}
                 <div className="home-right-col">
                     <div className="vision-box-img-style">
-                        <h2>VISION</h2>
+                        {/* <h2>VISION</h2>
                         <p>
                             Believe India envisions to facilitate empowerment and sustainability of the grassroots producers, artisans and crafts persons through fairness and transparency in trade, alleviating poverty, ignorance and unemployment in India
-                        </p>
+                        </p> */}
+                        {homeData?.homepageContent?.content2 && (
+                            <div>
+                                <h3>{homeData.homepageContent.content2.title}</h3>
+                                <p>{homeData.homepageContent.content2.description}</p>
+                            </div>
+                        )}
                     </div>
                     <div className="focus-areas-img-style">
                         <div className="focus-areas-grid">

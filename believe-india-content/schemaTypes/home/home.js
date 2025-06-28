@@ -27,28 +27,79 @@ export default {
             title: 'Description',
             type: 'text'
         },
-
         {
             name: 'homepageContent',
             title: 'Home Page Content',
-            type: 'array',
-            of: [
+            type: 'object',
+            fields: [
                 {
+                    name: 'tagline',
+                    title: 'Tagline Section',
                     type: 'object',
                     fields: [
                         {
                             name: 'title',
-                            title: 'Title',
+                            title: 'Tagline Title',
                             type: 'string'
                         },
                         {
                             name: 'description',
-                            title: 'Description',
+                            title: 'Tagline Description',
                             type: 'text'
                         },
                         {
                             name: 'image',
-                            title: 'Image',
+                            title: 'Tagline Image',
+                            type: 'image',
+                            options: {
+                                hotspot: true
+                            }
+                        }
+                    ]
+                },
+                {
+                    name: 'content1',
+                    title: 'Content 1 Section',
+                    type: 'object',
+                    fields: [
+                        {
+                            name: 'title',
+                            title: 'Content 1 Title',
+                            type: 'string'
+                        },
+                        {
+                            name: 'description',
+                            title: 'Content 1 Description',
+                            type: 'text'
+                        },
+                        {
+                            name: 'image',
+                            title: 'Content 1 Image',
+                            type: 'image',
+                            options: {
+                                hotspot: true
+                            }
+                        }
+                    ]
+                },
+                {
+                    name: 'content2',
+                    title: 'Content 2 Section',
+                    type: 'object',
+                    fields: [
+                        {
+                            name: 'title',
+                            title: 'Content 2 Title',
+                            type: 'string'
+                        },
+                        {
+                            name: 'description',
+                            title: 'Content 2 Description',
+                            type: 'text'
+                        },
+                        {
+                            name: 'image',
+                            title: 'Content 2 Image',
                             type: 'image',
                             options: {
                                 hotspot: true
@@ -58,7 +109,6 @@ export default {
                 }
             ]
         },
-
         {
             name: 'carouselImages',
             title: 'Carousel Images',
