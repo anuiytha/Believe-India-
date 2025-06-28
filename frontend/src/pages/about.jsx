@@ -79,107 +79,111 @@ const About = () => {
     }
 
     return (
-        <div className="about-container">
-            {/* Content Box 1 Section */}
-            {aboutData?.contentbox1 && (
-                <div className="about-hero">
-                    <div className="about-hero-content">
-                        {aboutData.contentbox1.image && (
-                            <img src={aboutData.contentbox1.image} alt={aboutData.contentbox1.title} className="about-image-philosophy" />
-                        )}
-                        <div>
-                            <h2>{aboutData.contentbox1.title}</h2>
-                            <p>{aboutData.contentbox1.description}</p>
-                        </div>
-                    </div>
-                </div>
-            )}
-
-            {/* Content Box 2 Section */}
-            {aboutData?.contentbox2 && (
-                <div className="about-hero">
-                    <div className="about-hero-content">
-                        {aboutData.contentbox2.image && (
-                            <img src={aboutData.contentbox2.image} alt={aboutData.contentbox2.title} className="about-image-philosophy" />
-                        )}
-                        <div>
-                            <h2>{aboutData.contentbox2.title}</h2>
-                            <p>{aboutData.contentbox2.description}</p>
-                        </div>
-                    </div>
-                </div>
-            )}
-
-            {/* Team Members Section */}
-            {aboutData?.teamMembers && aboutData.teamMembers.length > 0 && (
-                <div className="about-hero">
-                    <div className="about-hero-content">
-                        <div className="about-content">
-                            <h2>Our Team</h2>
-                            <div className="team-grid">
-                                {aboutData.teamMembers.map((member, memberIndex) => (
-                                    <div key={memberIndex} className="team-card">
-                                        {member.photo && (
-                                            <img src={member.photo} alt={member.name} className="team-photo" />
-                                        )}
-                                        <h3>{member.name}</h3>
-                                        <p>{member.description}</p>
-                                        {member.linkedinUrl && (
-                                            <a href={member.linkedinUrl} target="_blank" rel="noopener noreferrer" className="linkedin-button">
-                                                View LinkedIn
-                                            </a>
-                                        )}
-                                    </div>
-                                ))}
+        <>
+            <div className="about-container">
+                {/* Content Box 1 Section */}
+                {aboutData?.contentbox1 && (
+                    <div className="about-hero">
+                        <div className="about-hero-content">
+                            {aboutData.contentbox1.image && (
+                                <img src={aboutData.contentbox1.image} alt={aboutData.contentbox1.title} className="about-image-philosophy" />
+                            )}
+                            <div>
+                                <h2>{aboutData.contentbox1.title}</h2>
+                                <p>{aboutData.contentbox1.description}</p>
                             </div>
                         </div>
                     </div>
-                </div>
-            )}
+                )}
 
-            {/* Debug Section - Show if team members data exists */}
-            {aboutData && (
-                <div style={{ padding: '20px', background: '#f0f0f0', margin: '20px 0' }}>
-                    <h3>Debug Info:</h3>
-                    <p>Team Members Array: {JSON.stringify(aboutData.teamMembers)}</p>
-                    <p>Team Members Length: {aboutData.teamMembers ? aboutData.teamMembers.length : 'undefined'}</p>
-                    <p>Has Team Members: {aboutData.teamMembers && aboutData.teamMembers.length > 0 ? 'Yes' : 'No'}</p>
-                </div>
-            )}
-
-            {/* About Us Get In Touch Section */}
-            {aboutData?.getInTouch && (
-                <div className="about-contact">
-                    <div className={`about-box ${aboutData.getInTouch.align || 'left'}`}>
-                        {aboutData.getInTouch.image && (
-                            <img src={aboutData.getInTouch.image} alt={aboutData.getInTouch.title} className="about-image" />
-                        )}
-                        <div className="about-content">
-                            <h2>{aboutData.getInTouch.title}</h2>
-                            <p>{aboutData.getInTouch.description}</p>
-
-                            {/* Contact Information */}
-                            {aboutData.getInTouch.contactInfo && (
-                                <div className="contact-info">
-                                    {aboutData.getInTouch.contactInfo.address && (
-                                        <p><strong>Address:</strong> {aboutData.getInTouch.contactInfo.address}</p>
-                                    )}
-                                    {aboutData.getInTouch.contactInfo.phone && (
-                                        <p><strong>Phone:</strong> {aboutData.getInTouch.contactInfo.phone}</p>
-                                    )}
-                                    {aboutData.getInTouch.contactInfo.email && (
-                                        <p><strong>Email:</strong> {aboutData.getInTouch.contactInfo.email}</p>
-                                    )}
-                                    {aboutData.getInTouch.contactInfo.website && (
-                                        <p><strong>Website:</strong> <a href={aboutData.getInTouch.contactInfo.website} target="_blank" rel="noopener noreferrer">{aboutData.getInTouch.contactInfo.website}</a></p>
-                                    )}
+                {/* Content Box 2 Section */}
+                {aboutData?.contentbox2 && (
+                    <div className="about-hero">
+                        <div className="about-hero-content">
+                            {aboutData.contentbox2.image && (
+                                <img src={aboutData.contentbox2.image} alt={aboutData.contentbox2.title} className="about-image-philosophy" />
+                            )}
+                            <div>
+                                <h2>{aboutData.contentbox2.title}</h2>
+                                <p>{aboutData.contentbox2.description}</p>
+                            </div>
+                        </div>
+                        <div>
+                            {/* Team Members Section */}
+                            {aboutData?.teamMembers && aboutData.teamMembers.length > 0 && (
+                                <div className="about-hero">
+                                    <div className="about-hero-content">
+                                        <div className="about-content">
+                                            <h2>Our Team</h2>
+                                            <div className="team-grid">
+                                                {aboutData.teamMembers.map((member, memberIndex) => (
+                                                    <div key={memberIndex} className="team-card">
+                                                        {member.photo && (
+                                                            <img src={member.photo} alt={member.name} className="team-photo" />
+                                                        )}
+                                                        <h3>{member.name}</h3>
+                                                        <p>{member.description}</p>
+                                                        {member.linkedinUrl && (
+                                                            <a href={member.linkedinUrl} target="_blank" rel="noopener noreferrer" className="linkedin-button">
+                                                                View LinkedIn
+                                                            </a>
+                                                        )}
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             )}
+
                         </div>
                     </div>
-                </div>
-            )}
-        </div>
+                )}
+
+                {/* Debug Section - Show if team members data exists */}
+                {aboutData && (
+                    <div style={{ padding: '20px', background: '#f0f0f0', margin: '20px 0' }}>
+                        <h3>Debug Info:</h3>
+                        <p>Team Members Array: {JSON.stringify(aboutData.teamMembers)}</p>
+                        <p>Team Members Length: {aboutData.teamMembers ? aboutData.teamMembers.length : 'undefined'}</p>
+                        <p>Has Team Members: {aboutData.teamMembers && aboutData.teamMembers.length > 0 ? 'Yes' : 'No'}</p>
+                    </div>
+                )}
+
+                {/* About Us Get In Touch Section */}
+                {aboutData?.getInTouch && (
+                    <div className="about-contact">
+                        <div className={`about-box ${aboutData.getInTouch.align || 'left'}`}>
+                            {aboutData.getInTouch.image && (
+                                <img src={aboutData.getInTouch.image} alt={aboutData.getInTouch.title} className="about-image" />
+                            )}
+                            <div className="about-content">
+                                <h2>{aboutData.getInTouch.title}</h2>
+                                <p>{aboutData.getInTouch.description}</p>
+
+                                {/* Contact Information */}
+                                {aboutData.getInTouch.contactInfo && (
+                                    <div className="contact-info">
+                                        {aboutData.getInTouch.contactInfo.address && (
+                                            <p><strong>Address:</strong> {aboutData.getInTouch.contactInfo.address}</p>
+                                        )}
+                                        {aboutData.getInTouch.contactInfo.phone && (
+                                            <p><strong>Phone:</strong> {aboutData.getInTouch.contactInfo.phone}</p>
+                                        )}
+                                        {aboutData.getInTouch.contactInfo.email && (
+                                            <p><strong>Email:</strong> {aboutData.getInTouch.contactInfo.email}</p>
+                                        )}
+                                        {aboutData.getInTouch.contactInfo.website && (
+                                            <p><strong>Website:</strong> <a href={aboutData.getInTouch.contactInfo.website} target="_blank" rel="noopener noreferrer">{aboutData.getInTouch.contactInfo.website}</a></p>
+                                        )}
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                    </div>
+                )}
+            </div>
+        </>
     );
 };
 
