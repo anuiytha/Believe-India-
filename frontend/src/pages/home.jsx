@@ -184,7 +184,7 @@ const Home = () => {
                     </div>
                     <div className="mission-box-img-style">
                         {/* <h2>MISSION</h2> */}
-                        {/* <p>
+                        <p>
 
                             {homeData.homepageContent.map((item, index) => (
                                 <div key={index}>
@@ -192,7 +192,7 @@ const Home = () => {
                                     <p>{item.description}</p>
                                 </div>
                             ))}
-                        </p> */}
+                        </p>
                     </div>
                 </div>
                 {/* Right Column: Vision and Focus Areas */}
