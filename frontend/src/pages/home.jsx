@@ -130,8 +130,8 @@ const Home = () => {
                                     <div className="slide-background" style={{ backgroundImage: `url(${slide.image})` }}>
                                         <div className="slide-overlay">
                                             <div className="slide-content">
-                                                {slide.title && <h2 className="slide-title">{slide.title}</h2>}
-                                                <p className="slide-description">{slide.description}</p>
+                                                {/* {slide.title && <h2 className="slide-title">{slide.title}</h2>}
+                                                <p className="slide-description">{slide.description}</p> */}
                                             </div>
                                         </div>
                                     </div>
