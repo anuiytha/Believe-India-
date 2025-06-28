@@ -140,15 +140,7 @@ const About = () => {
                     </div>
                 )}
 
-                {/* Debug Section - Show if team members data exists */}
-                {aboutData && (
-                    <div style={{ padding: '20px', background: '#f0f0f0', margin: '20px 0' }}>
-                        <h3>Debug Info:</h3>
-                        <p>Team Members Array: {JSON.stringify(aboutData.teamMembers)}</p>
-                        <p>Team Members Length: {aboutData.teamMembers ? aboutData.teamMembers.length : 'undefined'}</p>
-                        <p>Has Team Members: {aboutData.teamMembers && aboutData.teamMembers.length > 0 ? 'Yes' : 'No'}</p>
-                    </div>
-                )}
+
 
                 {/* About Us Get In Touch Section */}
                 {aboutData?.getInTouch && (
