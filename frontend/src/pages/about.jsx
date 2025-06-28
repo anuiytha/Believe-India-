@@ -104,10 +104,10 @@ const About = () => {
                             <h2>{aboutData.contentbox2.title}</h2>
                             <p>{aboutData.contentbox2.description}</p>
 
-                            {/* Team Members Grid - Now here! */}
-                            <div className="team-grid">
-                                {aboutData.teamMembers && aboutData.teamMembers.length > 0 && (
-                                    aboutData.teamMembers.map((member, memberIndex) => (
+                            {/* Team Members Grid Inside Content Box 2 */}
+                            {aboutData.teamMembers && aboutData.teamMembers.length > 0 && (
+                                <div className="team-grid">
+                                    {aboutData.teamMembers.map((member, memberIndex) => (
                                         <div key={memberIndex} className="team-card">
                                             {member.photo && (
                                                 <img src={member.photo} alt={member.name} className="team-photo" />
@@ -120,20 +120,11 @@ const About = () => {
                                                 </a>
                                             )}
                                         </div>
-                                    ))
-                                )}
-                            </div>
+                                    ))}
+                                </div>
+                            )}
                         </div>
                     </div>
-                </div>
-            )}
-
-            {/* About Us Team Section (without team members) */}
-            {aboutData?.team && (
-                <div className="about-box">
-                    <h2>{aboutData.team.title}</h2>
-                    <p>{aboutData.team.description}</p>
-                    {/* No team members here anymore */}
                 </div>
             )}
 
