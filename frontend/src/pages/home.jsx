@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './home.css';
-import useContentful from '../../contentful/useContentful';
 import '../styles.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faRocket, faHandHoldingHeart, faUsers, faRecycle, faBalanceScale, faBullhorn, faNetworkWired, faStore, faChild } from "@fortawesome/free-solid-svg-icons";
+import { client } from '../../sanityio/sanityClient';
 
 const focusAreas = [
     { icon: faHandHoldingHeart, label: 'Capacity Building' },
@@ -21,31 +21,57 @@ const focusAreas = [
 const Home = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
     const [slides, setSlides] = useState([]);
-    const { getCarouselImages } = useContentful();
-    const { getBelieveIndiaIntro } = useContentful();
-    const [biIntros, setBiIntros] = useState([]);
+    const [homeData, setHomeData] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        getCarouselImages().then((data) => {
-            console.log("Fetched Carousel Images:", data);
-            setSlides(data);
-        }).catch(error => {
-            console.error("Error fetching carousel images:", error);
-        });
-        getBelieveIndiaIntro().then((data) => {
-            console.log("Fetched Bi Intros:", data);
-            setBiIntros(data);
-        }).catch(error => {
-            console.error("Error fetching bi intros:", error);
-        });
+        const fetchHomeData = async () => {
+            try {
+                const query = `*[_type == "home"][0] {
+                    title,
+                    biLogo,
+                    "biLogoImage": biLogoImage.asset->url,
+                    description,
+                    carouselImages[] {
+                        title,
+                        description,
+                        "image": image.asset->url
+                    },
+                    homepageContent[] {
+                        title,
+                        description,
+                        "image": image.asset->url
+                    }
+                }`;
+
+                const data = await client.fetch(query);
+                console.log("Fetched Home Data:", data);
+
+                setHomeData(data);
+
+                // Set carousel slides from the fetched data
+                if (data?.carouselImages) {
+                    setSlides(data.carouselImages);
+                }
+
+                setLoading(false);
+            } catch (error) {
+                console.error("Error fetching home data:", error);
+                setLoading(false);
+            }
+        };
+
+        fetchHomeData();
     }, []);
 
     useEffect(() => {
-        const timer = setInterval(() => {
-            setCurrentSlide((prev) => (prev + 1) % slides.length);
-        }, 5000);
+        if (slides.length > 0) {
+            const timer = setInterval(() => {
+                setCurrentSlide((prev) => (prev + 1) % slides.length);
+            }, 5000);
 
-        return () => clearInterval(timer);
+            return () => clearInterval(timer);
+        }
     }, [slides.length]);
 
     const nextSlide = () => {
@@ -59,6 +85,20 @@ const Home = () => {
     const goToSlide = (index) => {
         setCurrentSlide(index);
     };
+
+    if (loading) {
+        return (
+            <div style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                height: '100vh',
+                fontSize: '18px'
+            }}>
+                Loading...
+            </div>
+        );
+    }
 
     return (
         <div>
@@ -75,10 +115,10 @@ const Home = () => {
                                         transform: `translateX(${(index - currentSlide) * 100}%)`
                                     }}
                                 >
-                                    <div className="slide-background" style={{ backgroundImage: `url(${slide.imageUrl})` }}>
+                                    <div className="slide-background" style={{ backgroundImage: `url(${slide.image})` }}>
                                         <div className="slide-overlay">
                                             <div className="slide-content">
-
+                                                {slide.title && <h2 className="slide-title">{slide.title}</h2>}
                                                 <p className="slide-description">{slide.description}</p>
                                             </div>
                                         </div>
@@ -87,31 +127,46 @@ const Home = () => {
                             ))}
                         </div>
                     ) : (
-                        <p>Loading carousel images...</p>
+                        <div className="carousel">
+                            <div className="carousel-slide active">
+                                <div className="slide-background" style={{ backgroundImage: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' }}>
+                                    <div className="slide-overlay">
+                                        <div className="slide-content">
+                                            <h2 className="slide-title">Welcome to Believe India</h2>
+                                            <p className="slide-description">Empowering communities through fair trade and sustainable practices</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     )}
 
                     {/* Navigation Arrows */}
-                    <button className="carousel-arrow carousel-arrow-left" onClick={prevSlide}>
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
-                    </button>
-                    <button className="carousel-arrow carousel-arrow-right" onClick={nextSlide}>
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
-                    </button>
+                    {slides.length > 1 && (
+                        <>
+                            <button className="carousel-arrow carousel-arrow-left" onClick={prevSlide}>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                </svg>
+                            </button>
+                            <button className="carousel-arrow carousel-arrow-right" onClick={nextSlide}>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                </svg>
+                            </button>
 
-                    {/* Dots Navigation */}
-                    <div className="carousel-dots">
-                        {slides.map((_, index) => (
-                            <button
-                                key={index}
-                                className={`carousel-dot ${index === currentSlide ? 'active' : ''}`}
-                                onClick={() => goToSlide(index)}
-                            />
-                        ))}
-                    </div>
+                            {/* Dots Navigation */}
+                            <div className="carousel-dots">
+                                {slides.map((_, index) => (
+                                    <button
+                                        key={index}
+                                        className={`carousel-dot ${index === currentSlide ? 'active' : ''}`}
+                                        onClick={() => goToSlide(index)}
+                                    />
+                                ))}
+                            </div>
+                        </>
+                    )}
                 </div>
             </section>
 
@@ -120,13 +175,19 @@ const Home = () => {
                 {/* Left Column: Logo and Mission */}
                 <div className="home-left-col">
                     <div className="logo-section">
-                        <img src="/bilogo.jpg" alt="Believe India Logo" className="logo" />
-                        <h1 className="tagline">Be the Change</h1>
+                        <img
+                            src={homeData?.biLogoImage || "/bilogo.jpg"}
+                            alt="Believe India Logo"
+                            className="logo"
+                        />
+                        <h1 className="tagline">{homeData?.biLogo || "Be the Change"}</h1>
                     </div>
                     <div className="mission-box-img-style">
                         <h2>MISSION</h2>
                         <p>
-                            The mission is to promote and strengthen Fair Trade and empowering practices and concepts among all the stakeholders including producers, intermediary organizations and consumers globally in designing, production, marketing and development with missionary zeal.
+                            {homeData?.description ||
+                                "The mission is to promote and strengthen Fair Trade and empowering practices and concepts among all the stakeholders including producers, intermediary organizations and consumers globally in designing, production, marketing and development with missionary zeal."
+                            }
                         </p>
                     </div>
                 </div>

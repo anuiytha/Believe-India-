@@ -6,6 +6,7 @@ import retail from "./initiatives/retail";
 import shetheChange from "./initiatives/shetheChange";
 import travel from "./initiatives/travel";
 import awards from "./initiatives/awards";
+import home from "./home/home";
 
-export const schemaTypes = [campaign, ecommerce, corporate, emc, retail, shetheChange, travel, awards];
+export const schemaTypes = [campaign, ecommerce, corporate, emc, retail, shetheChange, travel, awards, home];
 
