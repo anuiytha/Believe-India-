@@ -47,7 +47,7 @@ const Home = () => {
                 const data = await client.fetch(query);
                 console.log("Fetched Home Data:", data);
 
-                setHomeData(data);
+                console.log("Fetched Home Data:", data);
 
                 // Set carousel slides from the fetched data
                 if (data?.carouselImages) {
@@ -176,7 +176,7 @@ const Home = () => {
                 <div className="home-left-col">
                     <div className="logo-section">
                         <img
-                            src={homeData?.biLogoImage || "/bilogo.jpg"}
+                            src={homeData?.biLogoImage}
                             alt="Believe India Logo"
                             className="logo"
                         />
