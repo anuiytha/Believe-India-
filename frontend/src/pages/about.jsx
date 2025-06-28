@@ -103,6 +103,26 @@ const About = () => {
                         <div>
                             <h2>{aboutData.contentbox2.title}</h2>
                             <p>{aboutData.contentbox2.description}</p>
+
+                            {/* Team Members Grid Under Content Box 2 Description */}
+                            {aboutData.teamMembers && aboutData.teamMembers.length > 0 && (
+                                <div className="team-grid">
+                                    {aboutData.teamMembers.map((member, memberIndex) => (
+                                        <div key={memberIndex} className="team-card">
+                                            {member.photo && (
+                                                <img src={member.photo} alt={member.name} className="team-photo" />
+                                            )}
+                                            <h3>{member.name}</h3>
+                                            <p>{member.description}</p>
+                                            {member.linkedinUrl && (
+                                                <a href={member.linkedinUrl} target="_blank" rel="noopener noreferrer" className="linkedin-button">
+                                                    View LinkedIn
+                                                </a>
+                                            )}
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
                         </div>
                     </div>
                 </div>
@@ -117,26 +137,6 @@ const About = () => {
                     <div className="about-content">
                         <h2>{aboutData.team.title}</h2>
                         <p>{aboutData.team.description}</p>
-
-                        {/* Team Members Grid Under Section Description */}
-                        {aboutData.teamMembers && aboutData.teamMembers.length > 0 && (
-                            <div className="team-grid">
-                                {aboutData.teamMembers.map((member, memberIndex) => (
-                                    <div key={memberIndex} className="team-card">
-                                        {member.photo && (
-                                            <img src={member.photo} alt={member.name} className="team-photo" />
-                                        )}
-                                        <h3>{member.name}</h3>
-                                        <p>{member.description}</p>
-                                        {member.linkedinUrl && (
-                                            <a href={member.linkedinUrl} target="_blank" rel="noopener noreferrer" className="linkedin-button">
-                                                View LinkedIn
-                                            </a>
-                                        )}
-                                    </div>
-                                ))}
-                            </div>
-                        )}
                     </div>
                 </div>
             )}
