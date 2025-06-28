@@ -51,6 +51,8 @@ const About = () => {
 
                 const data = await client.fetch(query);
                 console.log("Fetched About Data:", data);
+                console.log("Team Members Data:", data?.teamMembers);
+                console.log("Team Members Length:", data?.teamMembers?.length);
                 setAboutData(data);
                 setLoading(false);
             } catch (error) {
@@ -112,7 +114,7 @@ const About = () => {
             {aboutData?.teamMembers && aboutData.teamMembers.length > 0 && (
                 <div className="about-hero">
                     <div className="about-hero-content">
-                        <div>
+                        <div className="about-content">
                             <h2>Our Team</h2>
                             <div className="team-grid">
                                 {aboutData.teamMembers.map((member, memberIndex) => (
@@ -132,6 +134,16 @@ const About = () => {
                             </div>
                         </div>
                     </div>
+                </div>
+            )}
+
+            {/* Debug Section - Show if team members data exists */}
+            {aboutData && (
+                <div style={{ padding: '20px', background: '#f0f0f0', margin: '20px 0' }}>
+                    <h3>Debug Info:</h3>
+                    <p>Team Members Array: {JSON.stringify(aboutData.teamMembers)}</p>
+                    <p>Team Members Length: {aboutData.teamMembers ? aboutData.teamMembers.length : 'undefined'}</p>
+                    <p>Has Team Members: {aboutData.teamMembers && aboutData.teamMembers.length > 0 ? 'Yes' : 'No'}</p>
                 </div>
             )}
 
