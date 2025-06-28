@@ -104,10 +104,10 @@ const About = () => {
                             <h2>{aboutData.contentbox2.title}</h2>
                             <p>{aboutData.contentbox2.description}</p>
 
-                            {/* Team Members Grid Under Content Box 2 Description */}
-                            {aboutData.teamMembers && aboutData.teamMembers.length > 0 && (
-                                <div className="team-grid">
-                                    {aboutData.teamMembers.map((member, memberIndex) => (
+                            {/* Team Members Grid - Now here! */}
+                            <div className="team-grid">
+                                {aboutData.teamMembers && aboutData.teamMembers.length > 0 && (
+                                    aboutData.teamMembers.map((member, memberIndex) => (
                                         <div key={memberIndex} className="team-card">
                                             {member.photo && (
                                                 <img src={member.photo} alt={member.name} className="team-photo" />
@@ -120,24 +120,20 @@ const About = () => {
                                                 </a>
                                             )}
                                         </div>
-                                    ))}
-                                </div>
-                            )}
+                                    ))
+                                )}
+                            </div>
                         </div>
                     </div>
                 </div>
             )}
 
-            {/* About Us Team Section */}
+            {/* About Us Team Section (without team members) */}
             {aboutData?.team && (
-                <div className={`about-box ${aboutData.team.align || 'left'}`}>
-                    {aboutData.team.image && (
-                        <img src={aboutData.team.image} alt={aboutData.team.title} className="about-image" />
-                    )}
-                    <div className="about-content">
-                        <h2>{aboutData.team.title}</h2>
-                        <p>{aboutData.team.description}</p>
-                    </div>
+                <div className="about-box">
+                    <h2>{aboutData.team.title}</h2>
+                    <p>{aboutData.team.description}</p>
+                    {/* No team members here anymore */}
                 </div>
             )}
 
