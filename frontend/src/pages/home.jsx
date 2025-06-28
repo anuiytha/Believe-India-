@@ -180,14 +180,18 @@ const Home = () => {
                             alt="Believe India Logo"
                             className="logo"
                         />
-                        <h1 className="tagline">{homeData?.biLogo || "Be the Change"}</h1>
+                        {/* <h1 className="tagline">{homeData?.biLogo || "Be the Change"}</h1> */}
                     </div>
                     <div className="mission-box-img-style">
-                        <h2>MISSION</h2>
+                        {/* <h2>MISSION</h2> */}
                         <p>
-                            {homeData?.description ||
-                                "The mission is to promote and strengthen Fair Trade and empowering practices and concepts among all the stakeholders including producers, intermediary organizations and consumers globally in designing, production, marketing and development with missionary zeal."
-                            }
+
+                            {homeData.homepageContent.map((item, index) => (
+                                <div key={index}>
+                                    <h3>{item.title}</h3>
+                                    <p>{item.description}</p>
+                                </div>
+                            ))}
                         </p>
                     </div>
                 </div>
