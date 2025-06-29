@@ -9,6 +9,7 @@ import awards from "./initiatives/awards";
 import home from "./home/home";
 import about from "./about";
 import projects from "./projects";
+import navbar from "./navbar/navbar";
 
-export const schemaTypes = [campaign, ecommerce, corporate, emc, retail, shetheChange, travel, awards, home, about, projects];
+export const schemaTypes = [campaign, ecommerce, corporate, emc, retail, shetheChange, travel, awards, home, about, projects, navbar];
 

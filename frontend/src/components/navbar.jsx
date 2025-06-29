@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './navbar.css';
-import useContentful from '../../contentful/useContentful';
+// import useContentful from '../../contentful/useContentful';
+import { client } from '../../../sanityio/sanityClient';
 
 
 const Navbar = () => {
@@ -9,18 +10,127 @@ const Navbar = () => {
     const [isSignedIn, setIsSignedIn] = useState(false); // This would typically come from your auth context
     const [biLogo, setBiLogo] = useState(null);
     const [activeDropdown, setActiveDropdown] = useState(null);
-    const { getBIHomePage } = useContentful();
-    const { getAboutDropdownlist } = useContentful();
+    // const { getBIHomePage } = useContentful();
+    // const { getAboutDropdownlist } = useContentful();
     const [aboutDropdownList, setAboutDropdownList] = useState([]);
+    const [navItems, setNavItems] = useState([]);
+    const [loading, setLoading] = useState(true);
+
     useEffect(() => {
-        getBIHomePage().then((data) => {
-            console.log("Fetched BIHomePage Data:", data); // Debugging
-            setBiLogo(data);
-        });
-        getAboutDropdownlist().then((data) => {
-            console.log("Fetched About Dropdown List:", data); // Debugging
-            setAboutDropdownList(data);
-        });
+        const fetchNavbarData = async () => {
+            try {
+                const query = `*[_type == "navbar"][0] {
+                    links[] {
+                        label,
+                        url,
+                        subcategories[] {
+                            label,
+                            url
+                        }
+                    }
+                }`;
+
+                const data = await client.fetch(query);
+                console.log("Fetched Navbar Data:", data);
+
+                if (data && data.links) {
+                    const processedNavItems = data.links.map(link => ({
+                        name: link.label,
+                        path: link.url || '#',
+                        hasDropdown: link.subcategories && link.subcategories.length > 0,
+                        dropdownItems: link.subcategories ? link.subcategories.map(sub => ({
+                            name: sub.label,
+                            path: sub.url
+                        })) : []
+                    }));
+
+                    setNavItems(processedNavItems);
+                } else {
+                    // Fallback to default navigation if no data
+                    setNavItems([
+                        {
+                            name: 'Home',
+                            path: '/',
+                            hasDropdown: false
+                        },
+                        {
+                            name: 'About',
+                            path: '/about',
+                            hasDropdown: false
+                        },
+                        {
+                            name: 'Services',
+                            path: '/services',
+                            hasDropdown: false
+                        },
+                        {
+                            name: 'Initiatives',
+                            path: '/projects',
+                            hasDropdown: false
+                        },
+                        {
+                            name: 'Idea Bank',
+                            path: '/idea-bank',
+                            hasDropdown: false
+                        },
+                        {
+                            name: 'Partners',
+                            path: '/partners',
+                            hasDropdown: false
+                        },
+                        {
+                            name: 'Our Campaigns',
+                            path: '/our-campaigns',
+                            hasDropdown: false
+                        }
+                    ]);
+                }
+                setLoading(false);
+            } catch (error) {
+                console.error("Error fetching navbar data:", error);
+                // Fallback to default navigation if Sanity data fails
+                setNavItems([
+                    {
+                        name: 'Home',
+                        path: '/',
+                        hasDropdown: false
+                    },
+                    {
+                        name: 'About',
+                        path: '/about',
+                        hasDropdown: false
+                    },
+                    {
+                        name: 'Services',
+                        path: '/services',
+                        hasDropdown: false
+                    },
+                    {
+                        name: 'Initiatives',
+                        path: '/projects',
+                        hasDropdown: false
+                    },
+                    {
+                        name: 'Idea Bank',
+                        path: '/idea-bank',
+                        hasDropdown: false
+                    },
+                    {
+                        name: 'Partners',
+                        path: '/partners',
+                        hasDropdown: false
+                    },
+                    {
+                        name: 'Our Campaigns',
+                        path: '/our-campaigns',
+                        hasDropdown: false
+                    }
+                ]);
+                setLoading(false);
+            }
+        };
+
+        fetchNavbarData();
     }, []);
 
     const toggleMenu = () => {
@@ -35,91 +145,23 @@ const Navbar = () => {
         setActiveDropdown(null);
     };
 
-    const navItems = [
-        {
-            name: 'Home',
-            path: '/',
-            hasDropdown: false
-        },
-        {
-            name: 'About',
-            path: '/about',
-            hasDropdown: true,
-            dropdownItems: aboutDropdownList.map(item => ({
-                name: item.name,
-                path: item.path
-            }))
-        },
-        {
-            name: 'Services',
-            path: '/services',
-            hasDropdown: true,
-            dropdownItems: [
-                { name: 'Consulting', path: '/services/consulting' },
-                { name: 'Training Programs', path: '/services/training' },
-                { name: 'Workshops', path: '/services/workshops' },
-                { name: 'Mentorship', path: '/services/mentorship' },
-                { name: 'Research & Development', path: '/services/research' }
-            ]
-        },
-        {
-            name: 'Initiatives',
-            path: '/projects',
-            hasDropdown: true,
-            dropdownItems: [
-                { name: 'Corporate', path: '/projects/corporate' },
-                { name: 'Travel', path: '/projects/travel' },
-                { name: 'Retail', path: '/projects/retail' },
-                { name: 'E-Commerce', path: '/projects/ecommerce' },
-                { name: 'Be the Change Awards', path: '/projects/awards' },
-                { name: 'Empowering Marginalized Communities including Refugees', path: '/projects/emc' },
-                { name: 'SHE THE CHANGE', path: '/projects/shethechange' }
-            ]
-        },
-        {
-            name: 'Idea Bank',
-            path: '/idea-bank',
-            hasDropdown: true,
-            dropdownItems: [
-                { name: 'Submit Idea', path: '/idea-bank/submit-idea' },
-                { name: 'Browse Ideas', path: '/idea-bank' },
-                { name: 'Featured Ideas', path: '/featured-ideas' },
-            ]
-        },
-        {
-            name: 'Partners',
-            path: '/partners',
-            hasDropdown: true,
-            dropdownItems: [
-                { name: 'Our Partners', path: '/partners/list' },
-                { name: 'Become a Partner', path: '/partners/join' },
-                { name: 'Partnership Programs', path: '/partners/programs' },
-                { name: 'Partner Resources', path: '/partners/resources' }
-            ]
-        },
-
-        {
-            name: 'Our Campaigns',
-            path: '/our-campaigns',
-            hasDropdown: false
-
-        },
-
-
-
-
-        // {
-        //     name: 'Contact Us',
-        //     path: '/contact',
-        //     hasDropdown: true,
-        //     dropdownItems: [
-        //         { name: 'Get in Touch', path: '/contact' },
-        //         { name: 'Support', path: '/contact/support' },
-        //         { name: 'Careers', path: '/contact/careers' },
-        //         { name: 'Media Inquiries', path: '/contact/media' }
-        //     ]
-        // }
-    ];
+    if (loading) {
+        return (
+            <nav className="navbar">
+                <div className="navbar-container">
+                    <div className="navbar-logo">
+                        <Link to="/">
+                            <img
+                                src="./bilogo.jpg"
+                                alt="Believe India Logo"
+                                className="logo-image"
+                            />
+                        </Link>
+                    </div>
+                </div>
+            </nav>
+        );
+    }
 
     return (
         <nav className="navbar">
