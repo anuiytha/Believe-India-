@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './navbar.css';
 // import useContentful from '../../contentful/useContentful';
-import { client } from '../../../sanityio/sanityClient';
+import { client } from '../../sanityio/sanityClient';
 
 
 const Navbar = () => {
