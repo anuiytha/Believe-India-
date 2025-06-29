@@ -1,18 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './navbar.css';
-// import useContentful from '../../contentful/useContentful';
 import { client } from '../../sanityio/sanityClient';
-
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const [isSignedIn, setIsSignedIn] = useState(false); // This would typically come from your auth context
-    const [biLogo, setBiLogo] = useState(null);
+    const [isSignedIn, setIsSignedIn] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState(null);
-    // const { getBIHomePage } = useContentful();
-    // const { getAboutDropdownlist } = useContentful();
-    const [aboutDropdownList, setAboutDropdownList] = useState([]);
     const [navItems, setNavItems] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -34,98 +28,20 @@ const Navbar = () => {
                 console.log("Fetched Navbar Data:", data);
 
                 if (data && data.links) {
-                    const processedNavItems = data.links.map(link => ({
-                        name: link.label,
-                        path: link.url || '#',
-                        hasDropdown: link.subcategories && link.subcategories.length > 0,
-                        dropdownItems: link.subcategories ? link.subcategories.map(sub => ({
+                    const processedNavItems = data.links.map(item => ({
+                        name: item.label,
+                        path: item.url || '#',
+                        hasDropdown: item.subcategories && item.subcategories.length > 0,
+                        dropdownItems: item.subcategories ? item.subcategories.map(sub => ({
                             name: sub.label,
                             path: sub.url
                         })) : []
                     }));
-
                     setNavItems(processedNavItems);
-                } else {
-                    // Fallback to default navigation if no data
-                    setNavItems([
-                        {
-                            name: 'Home',
-                            path: '/',
-                            hasDropdown: false
-                        },
-                        {
-                            name: 'About',
-                            path: '/about',
-                            hasDropdown: false
-                        },
-                        {
-                            name: 'Services',
-                            path: '/services',
-                            hasDropdown: false
-                        },
-                        {
-                            name: 'Initiatives',
-                            path: '/projects',
-                            hasDropdown: false
-                        },
-                        {
-                            name: 'Idea Bank',
-                            path: '/idea-bank',
-                            hasDropdown: false
-                        },
-                        {
-                            name: 'Partners',
-                            path: '/partners',
-                            hasDropdown: false
-                        },
-                        {
-                            name: 'Our Campaigns',
-                            path: '/our-campaigns',
-                            hasDropdown: false
-                        }
-                    ]);
                 }
                 setLoading(false);
             } catch (error) {
                 console.error("Error fetching navbar data:", error);
-                // Fallback to default navigation if Sanity data fails
-                setNavItems([
-                    {
-                        name: 'Home',
-                        path: '/',
-                        hasDropdown: false
-                    },
-                    {
-                        name: 'About',
-                        path: '/about',
-                        hasDropdown: false
-                    },
-                    {
-                        name: 'Services',
-                        path: '/services',
-                        hasDropdown: false
-                    },
-                    {
-                        name: 'Initiatives',
-                        path: '/projects',
-                        hasDropdown: false
-                    },
-                    {
-                        name: 'Idea Bank',
-                        path: '/idea-bank',
-                        hasDropdown: false
-                    },
-                    {
-                        name: 'Partners',
-                        path: '/partners',
-                        hasDropdown: false
-                    },
-                    {
-                        name: 'Our Campaigns',
-                        path: '/our-campaigns',
-                        hasDropdown: false
-                    }
-                ]);
                 setLoading(false);
             }
         };
@@ -169,8 +85,8 @@ const Navbar = () => {
                 <div className="navbar-logo">
                     <Link to="/">
                         <img
-                            src={biLogo?.biLogoImage?.fields?.file?.url ? `https:${biLogo.biLogoImage.fields.file.url}` : './bilogo.jpg'}
-                            alt={biLogo?.biLogoImage?.fields?.title || "Believe India Logo"}
+                            src="./bilogo.jpg"
+                            alt="Believe India Logo"
                             className="logo-image"
                         />
                     </Link>
