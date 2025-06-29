@@ -113,7 +113,7 @@ const About = () => {
                             {aboutData?.teamMembers && aboutData.teamMembers.length > 0 && (
 
                                 <div className="about-content">
-                                    <h2>Our Team</h2>
+
                                     <div className="team-grid">
                                         {aboutData.teamMembers.map((member, memberIndex) => (
                                             <div key={memberIndex} className="team-card">
