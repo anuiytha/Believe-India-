@@ -111,33 +111,32 @@ const About = () => {
                         <div>
                             {/* Team Members Section */}
                             {aboutData?.teamMembers && aboutData.teamMembers.length > 0 && (
-                                <div className="about-hero">
-                                    <div className="about-hero-content">
-                                        <div className="about-content">
-                                            <h2>Our Team</h2>
-                                            <div className="team-grid">
-                                                {aboutData.teamMembers.map((member, memberIndex) => (
-                                                    <div key={memberIndex} className="team-card">
-                                                        {member.photo && (
-                                                            <img src={member.photo} alt={member.name} className="team-photo" />
-                                                        )}
-                                                        <h3>{member.name}</h3>
-                                                        <p>{member.description}</p>
-                                                        {member.linkedinUrl && (
-                                                            <a href={member.linkedinUrl} target="_blank" rel="noopener noreferrer" className="linkedin-button">
-                                                                View LinkedIn
-                                                            </a>
-                                                        )}
-                                                    </div>
-                                                ))}
+
+                                <div className="about-content">
+                                    <h2>Our Team</h2>
+                                    <div className="team-grid">
+                                        {aboutData.teamMembers.map((member, memberIndex) => (
+                                            <div key={memberIndex} className="team-card">
+                                                {member.photo && (
+                                                    <img src={member.photo} alt={member.name} className="team-photo" />
+                                                )}
+                                                <h3>{member.name}</h3>
+                                                <p>{member.description}</p>
+                                                {member.linkedinUrl && (
+                                                    <a href={member.linkedinUrl} target="_blank" rel="noopener noreferrer" className="linkedin-button">
+                                                        View LinkedIn
+                                                    </a>
+                                                )}
                                             </div>
-                                        </div>
+                                        ))}
                                     </div>
                                 </div>
-                            )}
 
+
+                            )}
                         </div>
                     </div>
+
                 )}
 
 
