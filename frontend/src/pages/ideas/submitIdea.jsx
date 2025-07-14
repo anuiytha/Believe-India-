@@ -4,7 +4,7 @@ import IdeaForm from "./ideaForm";
 const SubmitIdea = () => {
     return (
         <>
-            <div> This is the submit idea</div>
+            {/* <div> This is the submit idea</div> */}
             <IdeaForm />
         </>
     )

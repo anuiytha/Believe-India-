@@ -19,10 +19,10 @@ const IdeaForm = () => {
         const file = e.target.files[0];
         const formData = new FormData();
         formData.append("file", file);
-        formData.append("upload_preset", "YOUR_CLOUDINARY_PRESET"); // Adjust for Contentful
+
 
         try {
-            const response = await axios.post("https://api.cloudinary.com/v1_1/YOUR_CLOUD_NAME/image/upload", formData);
+            const response = await axios.post("https://believe-india-backend.onrender.com/ideas", formData);
             setIdea({ ...idea, idea_image: response.data.secure_url });
         } catch (error) {
             console.error("Error uploading image:", error);
