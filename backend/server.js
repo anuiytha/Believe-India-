@@ -17,7 +17,7 @@ app.use(cors({
 app.use(express.json());
 app.use('/', ideaRoutes);
 app.use('/', projectRoutes);
-app.use('/', userRoutes);
+app.use('/api/auth', userRoutes);
 app.use('/', serviceRoutes);
 
 sequelize.sync().then(() => {
