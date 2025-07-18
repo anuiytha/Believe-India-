@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
-import jwtDecode from 'jwt-decode';
+import { jwtDecode } from 'jwt-decode';
 
 function Login({ setUser }) {
     const [form, setForm] = useState({ user_name: '', user_password: '' });
