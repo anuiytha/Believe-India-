@@ -32,7 +32,7 @@ import ProtectedRoute from './components/protectedRoute';
 
 
 const App = () => {
-  const [user, setUser] = useState(null);
+
   // const [message, setMessage] = useState('')
 
   // useEffect(() => {
