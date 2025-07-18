@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 
-export default function Register() {
+function Register() {
     const [form, setForm] = useState({
         user_name: '',
         user_email: '',
@@ -37,3 +37,5 @@ export default function Register() {
         </div>
     )
 }
+
+export default Register;

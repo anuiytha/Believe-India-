@@ -29,6 +29,7 @@ import Awards from "./pages/initiatives/awards";
 import Login from './components/login';
 import Welcome from './components/welcome';
 import ProtectedRoute from './components/protectedRoute';
+import Register from './components/register';
 
 
 const App = () => {
@@ -51,6 +52,7 @@ const App = () => {
           {/* <Route path="/login" element={<Login />} /> */}
           {/* <Route path="/welcome" element={<ProtectedRoute><Welcome user={user} /></ProtectedRoute>} /> */}
           <Route path="/" element={<Home />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/bi-ideas" element={<BiIdeas />} />
           <Route path="/idea-form" element={<IdeaForm />} />
           <Route path="/idea-bank" element={<IdeaBank />} />
