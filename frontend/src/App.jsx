@@ -48,7 +48,7 @@ const App = () => {
       <Navbar />
       <main className="app-main">
         <Routes>
-          <Route path="/login" element={<Login />} />
+          {/* <Route path="/login" element={<Login />} /> */}
           <Route path="/welcome" element={<ProtectedRoute><Welcome user={user} /></ProtectedRoute>} />
           <Route path="/" element={<Home />} />
           <Route path="/bi-ideas" element={<BiIdeas />} />
