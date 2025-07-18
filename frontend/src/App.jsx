@@ -26,9 +26,13 @@ import ECommerce from "./pages/initiatives/ecommerce";
 import ShetheChange from "./pages/initiatives/shetheChange";
 import EMC from "./pages/initiatives/emc";
 import Awards from "./pages/initiatives/awards";
+import Login from './components/login';
+import Welcome from './components/welcome';
+import ProtectedRoute from './components/protectedRoute';
 
 
 const App = () => {
+  const [user, setUser] = useState(null);
   // const [message, setMessage] = useState('')
 
   // useEffect(() => {
@@ -44,6 +48,8 @@ const App = () => {
       <Navbar />
       <main className="app-main">
         <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/welcome" element={<ProtectedRoute><Welcome user={user} /></ProtectedRoute>} />
           <Route path="/" element={<Home />} />
           <Route path="/bi-ideas" element={<BiIdeas />} />
           <Route path="/idea-form" element={<IdeaForm />} />

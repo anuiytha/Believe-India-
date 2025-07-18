@@ -8,7 +8,7 @@ const Users = sequelize.define('BI_Users', {
     user_role: { type: DataTypes.ENUM('admin', 'user'), allowNull: false },
     user_created_at: { type: DataTypes.DATE, allowNull: false, defaultValue: DataTypes.NOW },
     user_updated_at: { type: DataTypes.DATE, allowNull: false, defaultValue: DataTypes.NOW },
-    password_hash: { type: DataTypes.TEXT, allowNull: false },
+
 }, {
     timestamps: false,
     freezeTableName: true,
