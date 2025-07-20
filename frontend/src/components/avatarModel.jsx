@@ -3,7 +3,7 @@ import { useGLTF } from '@react-three/drei';
 
 export default function AvatarModel(props) {
     const group = useRef();
-    const { nodes, materials } = useGLTF('/avatar.glb');
+    const { nodes, materials } = useGLTF('https://models.readyplayer.me/687c4f9578fa5eac6bfdb72e.glb');
 
     return (
         <group ref={group} {...props} dispose={null}>
