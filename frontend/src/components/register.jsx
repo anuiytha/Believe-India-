@@ -16,8 +16,8 @@ function Register() {
 
     const handleRegister = async () => {
         try {
-            await axios.post('http://localhost:3001/register', form);
-            // await axios.post('https://believe-india-backend.onrender.com/register', form);
+            // await axios.post('http://localhost:3001/register', form);
+            await axios.post('https://believe-india-backend.onrender.com/register', form);
             alert('Registeration successful!');
         } catch (err) {
             alert('Registration failed');
