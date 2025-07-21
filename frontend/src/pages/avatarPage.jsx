@@ -13,7 +13,7 @@ const config = {
 
 const style = { width: '100%', height: '100vh', border: 'none' };
 
-export default function App() {
+export default function AvatarPage() {
     const [avatarUrl, setAvatarUrl] = useState('');
     const handleOnAvatarExported = (event) => {
         setAvatarUrl(event.data.url);

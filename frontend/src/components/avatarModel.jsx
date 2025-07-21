@@ -1,4 +1,6 @@
-import { AvatarCreator, AvatarCreatorConfig, AvatarExportedEvent } from '@readyplayerme/react-avatar-creator';
+import { AvatarCreator } from '@readyplayerme/react-avatar-creator';
+import { Avatar } from "@readyplayerme/visage";
+import { useState } from "react";
 
 const config = {
     clearCache: true,
@@ -9,14 +11,16 @@ const config = {
 
 const style = { width: '100%', height: '100vh', border: 'none' };
 
-export default function App() {
+export default function AvatarModel() {
+    const [avatarUrl, setAvatarUrl] = useState('');
     const handleOnAvatarExported = (event) => {
-        console.log(`Avatar URL is: ${event.data.url}`);
+        setAvatarUrl(event.data.url);
     };
 
     return (
         <>
             <AvatarCreator subdomain="https://avatar-testing-sj37ej.readyplayer.me/avatar" config={config} style={style} onAvatarExported={handleOnAvatarExported} />
+            {avatarUrl && <Avatar modelSrc={avatarUrl} />}
         </>
     );
 }
