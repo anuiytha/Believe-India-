@@ -1,24 +1,12 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+// import netlify from "@netlify/vite-plugin";
 
+// https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/',
+  base: "/",
   build: {
-    outDir: 'dist',
-    rollupOptions: {
-      external: [
-        'react',
-        'react-dom',
-        'react/jsx-runtime'
-      ],
-      output: {
-        globals: {
-          react: 'React',
-          'react-dom': 'ReactDOM',
-          'react/jsx-runtime': 'ReactJsxRuntime'
-        }
-      }
-    }
+    outDir: "dist",
   },
 });

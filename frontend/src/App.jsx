@@ -30,8 +30,7 @@ import Login from './components/login';
 import Welcome from './components/welcome';
 import ProtectedRoute from './components/protectedRoute';
 import Register from './components/register';
-import AvatarPage from './pages/avatarPage';
-import AvatarThreeD from './pages/AvatarThreeD';
+
 
 const App = () => {
 
@@ -79,8 +78,7 @@ const App = () => {
           <Route path="/projects/awards" element={<Awards />} />
           <Route path="/projects/emc" element={<EMC />} />
           <Route path="/projects/shethechange" element={<ShetheChange />} />
-          <Route path="/avatar" element={<AvatarPage />} />
-          <Route path="/avatar-3d" element={<AvatarThreeD />} />
+
         </Routes>
       </main>
     </div>
