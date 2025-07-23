@@ -35,8 +35,8 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^16.0.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^19.2.0-canary-edac0dde-20250723",
+    "react-dom": "^19.2.0-canary-edac0dde-20250723",
     "vite": "^6.3.5"
   }
 }
