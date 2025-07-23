@@ -53,6 +53,7 @@ const App = () => {
           {/* <Route path="/welcome" element={<ProtectedRoute><Welcome user={user} /></ProtectedRoute>} /> */}
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/bi-ideas" element={<BiIdeas />} />
           <Route path="/idea-form" element={<IdeaForm />} />
           <Route path="/idea-bank" element={<IdeaBank />} />
