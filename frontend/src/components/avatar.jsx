@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { useGLTF } from '@react-three/drei';
 
-export function StaticAvatar(props) {
+export function Avatar(props) {
     const group = useRef();
     const { nodes, materials } = useGLTF('models/663e84d22bf045a79933e198.glb');
 

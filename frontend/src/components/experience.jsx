@@ -1,5 +1,5 @@
 import { ContactShadows, Environment, OrbitControls, Sky } from "@react-three/drei";
-import { StaticAvatar } from "./avatar";
+import { Avatar } from "./avatar";
 
 export const Experience = () => {
     return (
@@ -9,7 +9,7 @@ export const Experience = () => {
             <Environment preset="sunset" />
             <group position-y={-1}>
                 <ContactShadows opacity={1} scale={10} blur={1} far={10} resolution={256} color="#000000" />
-                <StaticAvatar />
+                <Avatar />
                 <mesh scale={5} rotation-x={-Math.PI * 0.5} position-y={-0.001}>
                     <planeGeometry />
                     <meshStandardMaterial color="white" />
